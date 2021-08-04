@@ -1,0 +1,160 @@
+{% extends 'homepage/widgets/base.html' %}
+{% load static %}
+{% block title %}Confirm Appointment{% endblock title%}
+
+{% block content %}
+<main id="appointment">
+    <section class="appointment">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row pt-5">
+                <p>Please verify if everything is correct and true</p>
+
+                <div class="col-lg-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <fieldset disabled>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.last_name}}" class="form-label">Last
+                                                    Name</label>
+                                                <input type="text" id="{{orderitem.last_name}}" class="form-control"
+                                                       placeholder="{{orderitem.last_name}}">
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.first_name}}" class="form-label">First
+                                                    Name</label>
+                                                <input type="text" id="{{orderitem.first_name}}" class="form-control"
+                                                       placeholder="{{orderitem.first_name}}">
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.middle_name}}" class="form-label">Middle
+                                                    Name</label>
+                                                <input type="text" id="{{orderitem.middle_name}}" class="form-control"
+                                                       placeholder="{{orderitem.middle_name}}">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.email}}" class="form-label">Email
+                                                    Address</label>
+                                                <input type="text" id="{{orderitem.email}}" class="form-control"
+                                                       placeholder="{{orderitem.email}}">
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.contact_number}}" class="form-label">Contact
+                                                    Number</label>
+                                                <input type="text" id="{{orderitem.contact_number}}"
+                                                       class="form-control"
+                                                       placeholder="{{orderitem.contact_number}}">
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.nationality}}"
+                                                       class="form-label">Nationality</label>
+                                                <input type="text" id="{{orderitem.nationality}}" class="form-control"
+                                                       placeholder="{{orderitem.nationality}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-lg-3">
+                                                <label for="{{orderitem.civil_status}}" class="form-label">Civil
+                                                    Status</label>
+                                                <input type="text" id="{{orderitem.civil_status}}" class="form-control"
+                                                       placeholder="{{orderitem.civil_status}}">
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <label for="{{orderitem.date_of_birth}}" class="form-label">Date of
+                                                    Birth</label>
+                                                <input type="text" id="{{orderitem.date_of_birth}}" class="form-control"
+                                                       placeholder="{{orderitem.date_of_birth}}">
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.gender}}" class="form-label">Gender</label>
+                                                <input type="text" id="{{orderitem.gender}}" class="form-control"
+                                                       placeholder="{{orderitem.gender}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <label for="{{orderitem.address}}"
+                                                       class="form-label">Address</label>
+                                                <input type="text" id="{{orderitem.address}}" class="form-control"
+                                                       placeholder="{{orderitem.address}}">
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="{{orderitem.senior_pwd_id}}"
+                                                       class="form-label">Senior/PWD ID</label>
+                                                <input type="text" id="{{orderitem.senior_pwd_id}}" class="form-control"
+                                                       placeholder="{{orderitem.senior_pwd_id}}">
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <p class="text-danger">* You will receive your result through email.</p>
+
+                                        <h5>Payment Method:</h5>
+                                        <div class="row">
+                                            <div class="col-lg-1 align-items-center justify-content-center">
+                                                <img alt="" class="img-fluid"
+                                                     src="{% static 'assets/img/credit/paypal.png' %}">
+                                            </div>
+                                            <div class="col-lg-1 align-items-center justify-content-center">
+                                                <img alt="" class="img-fluid"
+                                                     src="{% static 'assets/img/credit/ubp-new-logo.png' %}">
+                                            </div>
+                                            <div class="col-lg-1 align-items-center justify-content-center">
+                                                <img alt="" class="img-fluid"
+                                                     src="{% static 'assets/img/credit/gcash.png' %}">
+                                            </div>
+                                            <div class="col-lg-1 align-items-center justify-content-center">
+                                                <img alt="" class="img-fluid"
+                                                     src="{% static 'assets/img/credit/lyka.png' %}">
+                                            </div>
+                                        </div>
+                                        <p><small>If an Appointment or asset is set up with unavailable time or is
+                                            booked for a
+                                            session, booking intervals for that Appointment or asset begin at the end of
+                                            their unavailable time or session.</small></p>
+                                    </fieldset>
+                                </div>
+                                <input type="submit" value="submit" class="btn btn-info"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mt-lg-0">
+                    <div class="pricing">
+                        <div class="box featured">
+                            <h3>Book Schedule Summary</h3>
+                            <p>Test Locations: <strong>{{ orderitem.test_location }}</strong></p>
+                            <p>Date: <strong>{{ orderitem.day }}</strong></p>
+                            <p>Time: <strong>{{ orderitem.time }}</strong></p>
+                            <p>Number of Person: <strong>{{ orderitem.number_of_person }}</strong></p>
+                            <hr>
+                            <p>Product Chosen:</p><p><strong>{{ orderitem.product }}</strong></p>
+                            <p>Price: <strong>{{ orderitem.product.price }}</strong></p>
+                            <hr>
+                            <p>Total: <strong>{{ orderitem.get_total }}</strong></p>
+
+                            {% if orderitem.senior_pwd_id is not None %}
+                            <p>Discount: <strong>{{ orderitem.get_discount|floatformat:"2" }}</strong></p>
+                            <p class="text-danger">Total Price with Discount: <strong>{{ orderitem.get_total_price_after_discount|floatformat:"2" }}</strong></p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

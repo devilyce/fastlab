@@ -1,0 +1,155 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FastLab | Data Management</title>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/vendor/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/datatables-buttons/css/buttons.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/adminlte.css' %}">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="container">
+        <h1><i><strong>Fast</strong>Lab<sup><span style="color: #78cede;">+</span></sup></i></h1>
+        <div class="row pb-5">
+            <div class="col-sm-7">
+                <div class="row pb-3">
+                    <div class="col-sm-4">
+                        Name:
+                    </div>
+                    <div class="col-sm-7">
+                        <b>{{ data.last_name }}, {{ data.first_name }} {{ data.middle_name }} </b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        Contact Number:
+                    </div>
+                    <div class="col-sm-8">
+                        {{ data.contact_number }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        Email:
+                    </div>
+                    <div class="col-sm-8">
+                        {{ data.email }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        Senior / PWD ID:
+                    </div>
+                    <div class="col-sm-8">
+                        {{ data.senior_pwd_id }}<br>
+                        {% if data.senior_pwd_file %}
+                        <a href="{{ data.senior_pwd_file.url }}">Senior / PWD ID Image</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        Address:
+                    </div>
+                    <div class="col-sm-8">
+                        {{ data.address }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                Reference Number:<br> <b>{{data.reference_number}}</b><br>
+                <br>
+                Test Location: <b>{{ data.test_location }}</b><br>
+                Date: <b>{{ data.booking_date }}</b><br>
+                Time: <b>{{ data.time }}</b><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-7">
+                <p class="lead">Account Summary</p>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th style="width:50%">Test Choice:</th>
+                            <td>{{ data.product }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price:</th>
+                            <td>{{ data.product.price | floatformat:2 }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total:</th>
+                            <td>{{ data.get_total }}</td>
+                        </tr>
+                        <tr>
+                            <th>Discount:</th>
+                            <td>{{ data.get_discount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total:</th>
+                            <td>{{ data.get_total_price_after_discount }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-5 table-responsive">
+                <p class="lead"><strong>Status</strong></p>
+                <table class="table table-striped">
+
+                    <tbody>
+                    <tr>
+                        <td>Payment</td>
+                        <td>{{ data.payment_status }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Payment Method</td>
+                        <td>{{ data.payment_method }}</td>
+                        <td>{{ data.payment_reference }}</td>
+                    </tr>
+                    <tr>
+                        <td>Test Status</td>
+                        <td>{{ data.pending_test }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Result Status</td>
+                        <td>{{ data.pending_result }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Result Mail</td>
+                        <td>{{ data.result_sent }}</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  window.addEventListener("load", window.print());
+
+
+
+</script>
+</body>
+</html>

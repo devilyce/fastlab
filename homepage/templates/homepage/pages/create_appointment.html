@@ -1,0 +1,327 @@
+{% extends 'homepage/widgets/base.html' %}
+{% load static %}
+{% block title %}Create Appointment{% endblock title%}
+
+{% block content %}
+<main id="appointment">
+    <section class="appointment">
+        <div class="container pt-5" data-aos="fade-up">
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.non_field_errors }}
+                                <div class="row">
+                                    <div class="col-lg12">
+                                        {{ form.product.errors }}
+                                        {{ form.test_location.errors }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label for="{{ form.product.id_for_label }}">{{form.product.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{ form.product }}
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="{{ form.test_location.id_for_label }}">{{form.test_location.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.test_location}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg12">
+                                        {{ form.number_of_person.errors }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label>{{ form.year.label }}<span
+                                                        class="text-danger">&#42</span></label>
+
+                                                <div class="ui selection dropdown" id="years">
+                                                    <input type="hidden" name="year">
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="default text">Year</div>
+                                                    <div class="menu" id="year-data-box">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label>{{ form.month.label }}<span
+                                                        class="text-danger">&#42</span></label>
+                                                <div class="ui selection dropdown" id="months">
+                                                    <input type="hidden" name="month" id="month-hidden">
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="default text" id="month-text">Month</div>
+                                                    <div class="menu" id="month-data-box">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label>{{ form.day.label }}<span class="text-danger">&#42</span></label>
+                                                <div class="ui selection dropdown" id="days">
+                                                    <input type="hidden" name="day" id="day-hidden">
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="default text" id="day-text">Day</div>
+                                                    <div class="menu" id="day-data-box">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>{{ form.time.label }}<span
+                                                        class="text-danger">&#42</span></label>
+                                                <div class="ui selection dropdown" id="times">
+                                                    <input type="hidden" name="time" id="time-hidden">
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="default text" id="time-text">Time</div>
+                                                    <div class="menu" id="time-data-box">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.number_of_person.id_for_label }}">{{form.number_of_person.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.number_of_person}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg12">
+                                        {{ form.last_name.errors }}
+                                        {{ form.first_name.errors }}
+                                        {{ form.middle_name.errors }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.last_name.id_for_label }}">{{form.last_name.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{ form.last_name }}
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.first_name.id_for_label }}">{{form.first_name.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.first_name}}
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.middle_name.id_for_label }}">{{form.middle_name.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.middle_name}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg12">
+                                        {{ form.email.errors }}
+                                        {{ form.contact_number.errors }}
+                                        {{ form.nationality.errors }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.email.id_for_label }}">{{form.email.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.email}}
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.contact_number.id_for_label }}">{{form.contact_number.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">+63</span>
+                                            {{form.contact_number}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.nationality.id_for_label }}">{{form.nationality.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.nationality}}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg12">
+                                        {{ form.civil_status.errors }}
+                                        {{ form.date_of_birth.errors }}
+                                        {{ form.gender.errors }}
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-lg-3">
+                                        <label for="{{ form.civil_status.id_for_label }}">{{form.civil_status.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.civil_status}}
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label for="{{ form.date_of_birth.id_for_label }}">{{form.date_of_birth.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.date_of_birth}}
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <label for="{{ form.gender.id_for_label }}">{{form.gender.label}}<span
+                                                class="text-danger">&#42</span></label>
+                                        {{form.gender}}
+                                    </div>
+                                </div>
+
+                                </br>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            {{form.address.errors}}
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label for="{{form.address.id_for_label}}">{{form.address.label}}<span
+                                                        class="text-danger">&#42</span></label>
+                                                {{form.address}}
+                                            </div>
+                                        </div>
+                                        <div class="row pt-2">
+                                            {{form.senior_pwd_id.errors}}
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <label>{{form.senior_pwd_file.label}}</label>
+                                                {{form.senior_pwd_file}}
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label>{{form.senior_pwd_id.label}}</label>
+                                                {{form.senior_pwd_id}}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p><span class="text-info"><strong>Health Declaration</strong></span></p>
+                                        <div class="row">
+                                            {{form.sick1.errors}}
+                                            {{form.sick2.errors}}
+                                            {{form.sick3.errors}}
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <p><span class="text-danger">&#42</span>
+                                                    Have you been sick in the past 30 days?</p></div>
+                                            <div class="col-lg-3">{{form.sick1}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <p><span class="text-danger">&#42</span>
+                                                    In the last 14 days, did you have any of the
+                                                    following: fever, colds, cough, sore throat, loss of smell and
+                                                    taste,
+                                                    muscle pain, headache or difficulty in breathing?</p>
+                                            </div>
+                                            <div class="col-lg-3">{{form.sick2}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <p><span class="text-danger">&#42</span>
+                                                    In the last 14 days, have you been in close contact
+                                                    or exposed to any person suspected of or confirmed with
+                                                    COVID-19?
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-3">{{form.sick3}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row pt-2">
+                                    <div class="col-lg-12">
+                                        <p class="text-danger">* You will receive your result through email.</p>
+                                        <p>Please note that in compliance with RA 11332 or the Mandatory Reporting
+                                            of
+                                            Notifiable
+                                            Diseases and Health Events of Public Health Concern Act, those who will
+                                            classify as
+                                            possible, suspect and probable COVID Case will be reported to the
+                                            Regional
+                                            Epidemiology and Surveillance Unit (RESU). The same act also requires
+                                            that
+                                            the
+                                            information that you provide regarding your health condition and
+                                            possible
+                                            exposure
+                                            are true.</p>
+                                        <p><span class="text-info">Data Privacy</span></p>
+                                        <p><strong>CONSENT:</strong> I certify that the information I will give are
+                                            true
+                                            and
+                                            correct. I hereby
+                                            confirm that I am voluntarily filling out this form as I seek medical
+                                            treatment or
+                                            avail of other healthcare services at Fastlab + by Lagman Diagnostic.
+                                        </p>
+
+
+                                        <p><strong>ACKNOWLEDGEMENT:</strong> I hereby confirm that I understand the
+                                            foregoing and that I am voluntarily giving my consent to the processing of
+                                            my Personal Data under the Philippine Data Privacy Act of 2012.</p>
+
+                                        <p>Furthermore, I understand that:</p>
+                                        <ul>
+
+                                            <li>1. The consent I am giving through this form is in addition to any
+                                                other consent that I may give/ have given Fastlab + by Lagman Diagnostic
+                                                regarding the use of my personal data.
+                                            </li>
+                                            <li>2. The consent will remain in force until I revoke it in writing.
+                                            </li>
+                                        </ul>
+                                        <p><span class="text-info"><strong>WAIVER</strong></span><span
+                                                class="text-danger">&#42</span>
+                                        </p>
+                                        <p>By signing this registration form, you
+                                            confirm that you accept our processing of your information and agree to
+                                            our
+                                            <span class="text-info">Privacy Policy.</span>
+                                        </p>
+                                        {{form.waiver.errors}}
+                                        <div class="form-check">
+                                            {{form.waiver}}
+                                            <label class="form-check-label">I am going to take an Antigen Test that
+                                                checks the presence of SARSCOV-2 (COVID-19) through FINA Antigen
+                                                Test.
+                                                As there are varied COVID-19 tests available in the market, I
+                                                acknowledge that it is my responsibility to ensure that this
+                                                COVID-19
+                                                test modality is acceptable with the governmental, private entity or
+                                                medical professional requiring the results for whatever purpose it
+                                                will
+                                                serve. In this regard, Fastlab + by Lagman Diagnostic Center does
+                                                not
+                                                guarantee that the official results it will issue will satisfy the
+                                                requirements of the requesting entity.
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="submit" class="btn btn-info mt-2" id="btn-submit" hidden/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

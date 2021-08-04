@@ -1,0 +1,1051 @@
+{% extends 'homepage/widgets/base.html' %}
+{% load static %}
+{% block title %}Health Declaration{% endblock title%}
+
+{% block content %}
+<main id="appointment">
+    <section class="appointment">
+        <div class="container" data-aos="fade-up">
+            <div class="row pt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <form method="post">
+                                {% csrf_token %}
+
+                                <input type="text" name="reference_number" class="form-control"
+                                       id="id_reference_number">
+                                <label for="id_philhealth">Philhealth:</label>
+                                <input type="text" name="philhealth" class="form-control" maxlength="20" required=""
+                                       id="id_philhealth">
+                                <label for="id_first_name">First name:</label><input type="text" name="first_name"
+                                                                                     class="form-control" maxlength="20"
+                                                                                     required="" id="id_first_name">
+                                <label for="id_last_name">Last name:</label><input type="text" name="last_name"
+                                                                                   class="form-control" maxlength="20"
+                                                                                   required="" id="id_last_name">
+                                <label for="id_middle_name">Middle name:</label><input type="text" name="middle_name"
+                                                                                       class="form-control"
+                                                                                       maxlength="20" required=""
+                                                                                       id="id_middle_name">
+                                <label for="id_date_of_birth">Date of birth:</label><input type="date"
+                                                                                           name="date_of_birth"
+                                                                                           class="form-control"
+                                                                                           id="id_date_of_birth">
+                                <label for="id_age">Age:</label><input type="text" name="age" class="form-control"
+                                                                       maxlength="20" id="id_age">
+                                <label for="id_gender">Gender:</label>
+                                <select name="gender" class="form-select"
+                                        id="id_gender">
+                                    <option value="" selected="">---------</option>
+
+                                    <option value="Male">Male</option>
+
+                                    <option value="Female">Female</option>
+
+                                </select>
+                                <label for="id_civil_status">Civil status:</label><select name="civil_status"
+                                                                                          class="form-select"
+                                                                                          id="id_civil_status">
+                                <option value="" selected="">---------</option>
+
+                                <option value="Single">Single</option>
+
+                                <option value="Married">Married</option>
+
+                                <option value="Divorced">Divorced</option>
+
+                                <option value="Widowed">Widowed</option>
+
+                                <option value="Annulled">Annulled</option>
+
+                                <option value="Legally Separated">Legally Separated</option>
+
+                            </select>
+                                <label for="id_nationality">Nationality:</label><input type="text" name="nationality"
+                                                                                       class="form-control"
+                                                                                       maxlength="20"
+                                                                                       id="id_nationality">
+                                <label for="id_occupation">Occupation:</label><input type="text" name="occupation"
+                                                                                     class="form-control" maxlength="20"
+                                                                                     id="id_occupation">
+                                <label for="id_lot">Lot:</label><input type="text" name="lot" class="form-control"
+                                                                       maxlength="20" id="id_lot">
+                                <label for="id_street">Street:</label><input type="text" name="street"
+                                                                             class="form-control" maxlength="20"
+                                                                             id="id_street">
+                                <label for="id_brgy">Brgy:</label><input type="text" name="brgy" class="form-control"
+                                                                         maxlength="20" id="id_brgy">
+                                <label for="id_city">City:</label><input type="text" name="city" class="form-control"
+                                                                         maxlength="20" id="id_city">
+                                <label for="id_province">Province:</label><input type="text" name="province"
+                                                                                 class="form-control" maxlength="20"
+                                                                                 id="id_province">
+                                <label for="id_phone_no">Phone no:</label><input type="text" name="phone_no"
+                                                                                 class="form-control" maxlength="20"
+                                                                                 id="id_phone_no">
+                                <label for="id_cp_no">Cp no:</label><input type="text" name="cp_no" class="form-control"
+                                                                           maxlength="20" id="id_cp_no">
+                                <label for="id_email">Email:</label><input type="email" name="email"
+                                                                           class="form-control" maxlength="20"
+                                                                           required="" id="id_email">
+                                <label for="id_work_lot">Work lot:</label><input type="text" name="work_lot"
+                                                                                 class="form-control" maxlength="20"
+                                                                                 id="id_work_lot">
+                                <label for="id_work_street">Work street:</label><input type="text" name="work_street"
+                                                                                       class="form-control"
+                                                                                       maxlength="20"
+                                                                                       id="id_work_street">
+                                <label for="id_work_brgy">Work brgy:</label><input type="text" name="work_brgy"
+                                                                                   class="form-control" maxlength="20"
+                                                                                   id="id_work_brgy">
+                                <label for="id_work_city">Work city:</label><input type="text" name="work_city"
+                                                                                   class="form-control" maxlength="20"
+                                                                                   id="id_work_city">
+                                <label for="id_work_province">Work province:</label><input type="text"
+                                                                                           name="work_province"
+                                                                                           class="form-control"
+                                                                                           maxlength="20"
+                                                                                           id="id_work_province">
+                                <label for="id_workplace">Workplace:</label><input type="text" name="workplace"
+                                                                                   class="form-control" maxlength="20"
+                                                                                   id="id_workplace">
+                                <label for="id_work_contact_no">Work contact no:</label><input type="text"
+                                                                                               name="work_contact_no"
+                                                                                               class="form-control"
+                                                                                               maxlength="20"
+                                                                                               id="id_work_contact_no">
+                                <label for="id_work_email">Work email:</label><input type="text" name="work_email"
+                                                                                     class="form-control" maxlength="20"
+                                                                                     id="id_work_email">
+                                <label for="id_covid_consultation">Covid consultation:</label><select
+                                    name="covid_consultation" class="form-select" id="id_covid_consultation">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_covid_consultation_date">Covid consultation date:</label><input
+                                    type="date" name="covid_consultation_date" class="form-control"
+                                    id="id_covid_consultation_date">
+                                <label for="id_consult_facility">Consult facility:</label><input type="text"
+                                                                                                 name="consult_facility"
+                                                                                                 class="form-control"
+                                                                                                 maxlength="20"
+                                                                                                 id="id_consult_facility">
+                                <label for="id_health_facility">Health facility:</label><select name="health_facility"
+                                                                                                class="form-select"
+                                                                                                id="id_health_facility">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_health_facility_date">Health facility date:</label><input type="date"
+                                                                                                         name="health_facility_date"
+                                                                                                         class="form-control"
+                                                                                                         id="id_health_facility_date">
+                                <label for="id_facility_name">Facility name:</label><input type="text"
+                                                                                           name="facility_name"
+                                                                                           class="form-control"
+                                                                                           maxlength="20"
+                                                                                           id="id_facility_name">
+                                <label for="id_region_facility">Region facility:</label><input type="text"
+                                                                                               name="region_facility"
+                                                                                               class="form-control"
+                                                                                               maxlength="20"
+                                                                                               id="id_region_facility">
+                                <label for="id_admitted_hospital">Admitted hospital:</label><input type="text"
+                                                                                                   name="admitted_hospital"
+                                                                                                   class="form-control"
+                                                                                                   maxlength="20"
+                                                                                                   id="id_admitted_hospital">
+                                <label for="id_admitted_hospital_date">Admitted hospital date:</label><input type="date"
+                                                                                                             name="admitted_hospital_date"
+                                                                                                             class="form-control"
+                                                                                                             id="id_admitted_hospital_date">
+                                <label for="id_admitted_facility">Admitted facility:</label><input type="text"
+                                                                                                   name="admitted_facility"
+                                                                                                   class="form-control"
+                                                                                                   maxlength="20"
+                                                                                                   id="id_admitted_facility">
+                                <label for="id_admitted_facility_date">Admitted facility date:</label><input type="date"
+                                                                                                             name="admitted_facility_date"
+                                                                                                             class="form-control"
+                                                                                                             id="id_admitted_facility_date">
+                                <label for="id_home_quarantine">Home quarantine:</label><input type="text"
+                                                                                               name="home_quarantine"
+                                                                                               class="form-control"
+                                                                                               maxlength="20"
+                                                                                               id="id_home_quarantine">
+                                <label for="id_home_quarantine_date">Home quarantine date:</label><input type="date"
+                                                                                                         name="home_quarantine_date"
+                                                                                                         class="form-control"
+                                                                                                         id="id_home_quarantine_date">
+                                <label for="id_other_admitted">Other admitted:</label><input type="text"
+                                                                                             name="other_admitted"
+                                                                                             class="form-control"
+                                                                                             maxlength="20"
+                                                                                             id="id_other_admitted">
+                                <label for="id_discarge_date">Discarge date:</label><input type="date"
+                                                                                           name="discarge_date"
+                                                                                           class="form-control"
+                                                                                           id="id_discarge_date">
+                                <label for="id_health_status_consult">Health status consult:</label><select
+                                    name="health_status_consult" class="form-select" id="id_health_status_consult">
+                                <option value="" selected="">---------</option>
+
+                                <option value="ASYMPTOMATIC">Asymptomatic</option>
+
+                                <option value="MILD">Mild</option>
+
+                                <option value="MODERATE">Moderate</option>
+
+                                <option value="SEVERE">Severe</option>
+
+                                <option value="CRITICAL">Critical</option>
+
+                            </select>
+                                <label for="id_case_classification">Case classification:</label><select
+                                    name="case_classification" class="form-select" id="id_case_classification">
+                                <option value="" selected="">---------</option>
+
+                                <option value="SUSPECT">Suspect</option>
+
+                                <option value="PROBABLE">Probable</option>
+
+                                <option value="CONFIRMED">Confirmed</option>
+
+                                <option value="NON-COVID-19-CASE">Non-Covid-19 Case</option>
+
+                            </select>
+                                <label for="id_health_care_worker">Health care worker:</label><select
+                                    name="health_care_worker" class="form-select" id="id_health_care_worker">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_health_care_worker_name">Health care worker name:</label><input
+                                    type="text" name="health_care_worker_name" class="form-control" maxlength="20"
+                                    id="id_health_care_worker_name">
+                                <label for="id_return_ofw">Return ofw:</label><select name="return_ofw"
+                                                                                      class="form-select"
+                                                                                      id="id_return_ofw">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_return_ofw_country">Return ofw country:</label><input type="text"
+                                                                                                     name="return_ofw_country"
+                                                                                                     class="form-control"
+                                                                                                     maxlength="20"
+                                                                                                     id="id_return_ofw_country">
+                                <label for="id_foreign_traveler">Foreign traveler:</label><select
+                                    name="foreign_traveler" class="form-select" id="id_foreign_traveler">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_foreign_traveler_country">Foreign traveler country:</label><input
+                                    type="text" name="foreign_traveler_country" class="form-control" maxlength="20"
+                                    id="id_foreign_traveler_country">
+                                <label for="id_local_stranded">Local stranded:</label><select name="local_stranded"
+                                                                                              class="form-select"
+                                                                                              id="id_local_stranded">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_local_stranded_city">Local stranded city:</label><input type="text"
+                                                                                                       name="local_stranded_city"
+                                                                                                       class="form-control"
+                                                                                                       maxlength="20"
+                                                                                                       id="id_local_stranded_city">
+                                <label for="id_live_closed">Live closed:</label><select name="live_closed"
+                                                                                        class="form-select"
+                                                                                        id="id_live_closed">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_live_closed_name">Live closed name:</label><input type="text"
+                                                                                                 name="live_closed_name"
+                                                                                                 class="form-control"
+                                                                                                 maxlength="20"
+                                                                                                 id="id_live_closed_name">
+                                <label for="id_current_lot">Current lot:</label><input type="text" name="current_lot"
+                                                                                       class="form-control"
+                                                                                       maxlength="20"
+                                                                                       id="id_current_lot">
+                                <label for="id_current_street">Current street:</label><input type="text"
+                                                                                             name="current_street"
+                                                                                             class="form-control"
+                                                                                             maxlength="20"
+                                                                                             id="id_current_street">
+                                <label for="id_current_brgy">Current brgy:</label><input type="text" name="current_brgy"
+                                                                                         class="form-control"
+                                                                                         maxlength="20"
+                                                                                         id="id_current_brgy">
+                                <label for="id_current_city">Current city:</label><input type="text" name="current_city"
+                                                                                         class="form-control"
+                                                                                         maxlength="20"
+                                                                                         id="id_current_city">
+                                <label for="id_current_province">Current province:</label><input type="text"
+                                                                                                 name="current_province"
+                                                                                                 class="form-control"
+                                                                                                 maxlength="20"
+                                                                                                 id="id_current_province">
+                                <label for="id_current_phone_no">Current phone no:</label><input type="text"
+                                                                                                 name="current_phone_no"
+                                                                                                 class="form-control"
+                                                                                                 maxlength="20"
+                                                                                                 id="id_current_phone_no">
+                                <label for="id_current_cp_no">Current cp no:</label><input type="text"
+                                                                                           name="current_cp_no"
+                                                                                           class="form-control"
+                                                                                           maxlength="20"
+                                                                                           id="id_current_cp_no">
+                                <label for="id_current_email">Current email:</label><input type="email"
+                                                                                           name="current_email"
+                                                                                           class="form-control"
+                                                                                           maxlength="20" required=""
+                                                                                           id="id_current_email">
+                                <label for="id_ofw_lot">Ofw lot:</label><input type="text" name="ofw_lot"
+                                                                               class="form-control" maxlength="20"
+                                                                               id="id_ofw_lot">
+                                <label for="id_ofw_street">Ofw street:</label><input type="text" name="ofw_street"
+                                                                                     class="form-control" maxlength="20"
+                                                                                     id="id_ofw_street">
+                                <label for="id_ofw_city">Ofw city:</label><input type="text" name="ofw_city"
+                                                                                 class="form-control" maxlength="20"
+                                                                                 id="id_ofw_city">
+                                <label for="id_ofw_province">Ofw province:</label><input type="text" name="ofw_province"
+                                                                                         class="form-control"
+                                                                                         maxlength="20"
+                                                                                         id="id_ofw_province">
+                                <label for="id_ofw_country">Ofw country:</label><input type="text" name="ofw_country"
+                                                                                       class="form-control"
+                                                                                       maxlength="20"
+                                                                                       id="id_ofw_country">
+                                <label for="id_ofw_workplace">Ofw workplace:</label><input type="text"
+                                                                                           name="ofw_workplace"
+                                                                                           class="form-control"
+                                                                                           maxlength="20"
+                                                                                           id="id_ofw_workplace">
+                                <label for="id_ofw_employer">Ofw employer:</label><input type="text" name="ofw_employer"
+                                                                                         class="form-control"
+                                                                                         maxlength="20"
+                                                                                         id="id_ofw_employer">
+                                <label for="id_ofw_contact_no">Ofw contact no:</label><input type="text"
+                                                                                             name="ofw_contact_no"
+                                                                                             class="form-control"
+                                                                                             maxlength="20"
+                                                                                             id="id_ofw_contact_no">
+                                <label for="id_date_onset">Date onset:</label><input type="date" name="date_onset"
+                                                                                     class="form-control"
+                                                                                     id="id_date_onset">
+                                <label for="id_asympto">Asympto:</label><input type="checkbox" name="asympto"
+                                                                               class="form-check-input" id="id_asympto">
+                                <label for="id_fever">Fever:</label><input type="checkbox" name="fever"
+                                                                           class="form-check-input" id="id_fever">
+                                <label for="id_fever_temp">Fever temp:</label><input type="text" name="fever_temp"
+                                                                                     class="form-control" maxlength="20"
+                                                                                     id="id_fever_temp">
+                                <label for="id_cough">Cough:</label><input type="checkbox" name="cough"
+                                                                           class="form-check-input" id="id_cough">
+                                <label for="id_general_weak">General weak:</label><input type="checkbox"
+                                                                                         name="general_weak"
+                                                                                         class="form-check-input"
+                                                                                         id="id_general_weak">
+                                <label for="id_fatigue">Fatigue:</label><input type="checkbox" name="fatigue"
+                                                                               class="form-check-input" id="id_fatigue">
+                                <label for="id_headache">Headache:</label><input type="checkbox" name="headache"
+                                                                                 class="form-check-input"
+                                                                                 id="id_headache">
+                                <label for="id_myalgia">Myalgia:</label><input type="checkbox" name="myalgia"
+                                                                               class="form-check-input" id="id_myalgia">
+                                <label for="id_sore_throat">Sore throat:</label><input type="checkbox"
+                                                                                       name="sore_throat"
+                                                                                       class="form-check-input"
+                                                                                       id="id_sore_throat">
+                                <label for="id_coryza">Coryza:</label><input type="checkbox" name="coryza"
+                                                                             class="form-check-input" id="id_coryza">
+                                <label for="id_dyspnea">Dyspnea:</label><input type="checkbox" name="dyspnea"
+                                                                               class="form-check-input" id="id_dyspnea">
+                                <label for="id_anorexia">Anorexia:</label><input type="checkbox" name="anorexia"
+                                                                                 class="form-check-input"
+                                                                                 id="id_anorexia">
+                                <label for="id_nausea">Nausea:</label><input type="checkbox" name="nausea"
+                                                                             class="form-check-input" id="id_nausea">
+                                <label for="id_vomiting">Vomiting:</label><input type="checkbox" name="vomiting"
+                                                                                 class="form-check-input"
+                                                                                 id="id_vomiting">
+                                <label for="id_diarrhea">Diarrhea:</label><input type="checkbox" name="diarrhea"
+                                                                                 class="form-check-input"
+                                                                                 id="id_diarrhea">
+                                <label for="id_altered_mental">Altered mental:</label><input type="checkbox"
+                                                                                             name="altered_mental"
+                                                                                             class="form-check-input"
+                                                                                             id="id_altered_mental">
+                                <label for="id_anosmia">Anosmia:</label><input type="checkbox" name="anosmia"
+                                                                               class="form-check-input" id="id_anosmia">
+                                <label for="id_aguesia">Aguesia:</label><input type="checkbox" name="aguesia"
+                                                                               class="form-check-input" id="id_aguesia">
+                                <label for="id_other_symptoms">Other symptoms:</label><input type="text"
+                                                                                             name="other_symptoms"
+                                                                                             class="form-control"
+                                                                                             maxlength="20"
+                                                                                             id="id_other_symptoms">
+                                <label for="id_como_none">Como none:</label><input type="checkbox" name="como_none"
+                                                                                   class="form-check-input"
+                                                                                   id="id_como_none">
+                                <label for="id_gastro">Gastro:</label><input type="checkbox" name="gastro"
+                                                                             class="form-check-input" id="id_gastro">
+                                <label for="id_hyper">Hyper:</label><input type="checkbox" name="hyper"
+                                                                           class="form-check-input" id="id_hyper">
+                                <label for="id_genito">Genito:</label><input type="checkbox" name="genito"
+                                                                             class="form-check-input" id="id_genito">
+                                <label for="id_diabetes">Diabetes:</label><input type="checkbox" name="diabetes"
+                                                                                 class="form-check-input"
+                                                                                 id="id_diabetes">
+                                <label for="id_neuro">Neuro:</label><input type="checkbox" name="neuro"
+                                                                           class="form-check-input" id="id_neuro">
+                                <label for="id_heart_d">Heart d:</label><input type="checkbox" name="heart_d"
+                                                                               class="form-check-input" id="id_heart_d">
+                                <label for="id_cancer">Cancer:</label><input type="checkbox" name="cancer"
+                                                                             class="form-check-input" id="id_cancer">
+                                <label for="id_lung_d">Lung d:</label><input type="checkbox" name="lung_d"
+                                                                             class="form-check-input" id="id_lung_d">
+                                <label for="id_como_others">Como others:</label><input type="text" name="como_others"
+                                                                                       class="form-control"
+                                                                                       maxlength="20"
+                                                                                       id="id_como_others">
+                                <label for="id_pregnant">Pregnant:</label><select name="pregnant" class="form-select"
+                                                                                  id="id_pregnant">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_pregnant_lmp">Pregnant lmp:</label><input type="text" name="pregnant_lmp"
+                                                                                         class="form-control"
+                                                                                         maxlength="20"
+                                                                                         id="id_pregnant_lmp">
+                                <label for="id_risk_pregnant">Risk pregnant:</label><select name="risk_pregnant"
+                                                                                            class="form-select"
+                                                                                            id="id_risk_pregnant">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_diag_sari">Diag sari:</label><select name="diag_sari" class="form-select"
+                                                                                    id="id_diag_sari">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_chest_radio">Chest radio:</label><input type="checkbox"
+                                                                                       name="chest_radio"
+                                                                                       class="form-check-input"
+                                                                                       id="id_chest_radio">
+                                <label for="id_chest_radio_finding">Chest radio finding:</label><input type="text"
+                                                                                                       name="chest_radio_finding"
+                                                                                                       class="form-control"
+                                                                                                       maxlength="20"
+                                                                                                       id="id_chest_radio_finding">
+                                <label for="id_chest_ct">Chest ct:</label><input type="checkbox" name="chest_ct"
+                                                                                 class="form-check-input"
+                                                                                 id="id_chest_ct">
+                                <label for="id_chest_ct_finding">Chest ct finding:</label><input type="text"
+                                                                                                 name="chest_ct_finding"
+                                                                                                 class="form-control"
+                                                                                                 maxlength="20"
+                                                                                                 id="id_chest_ct_finding">
+                                <label for="id_lung_ultra">Lung ultra:</label><input type="checkbox" name="lung_ultra"
+                                                                                     class="form-check-input"
+                                                                                     id="id_lung_ultra">
+                                <label for="id_lung_ultra_finding">Lung ultra finding:</label><input type="text"
+                                                                                                     name="lung_ultra_finding"
+                                                                                                     class="form-control"
+                                                                                                     maxlength="20"
+                                                                                                     id="id_lung_ultra_finding">
+                                <label for="id_chest_imaging_none">Chest imaging none:</label><input type="checkbox"
+                                                                                                     name="chest_imaging_none"
+                                                                                                     class="form-check-input"
+                                                                                                     id="id_chest_imaging_none">
+                                <label for="id_rt_pcr_ops">Rt pcr ops:</label><input type="checkbox" name="rt_pcr_ops"
+                                                                                     class="form-check-input"
+                                                                                     id="id_rt_pcr_ops">
+                                <label for="id_rt_pcr_ops_date">Rt pcr ops date:</label><input type="date"
+                                                                                               name="rt_pcr_ops_date"
+                                                                                               class="form-control"
+                                                                                               id="id_rt_pcr_ops_date">
+                                <label for="id_rt_pcr_ops_lab">Rt pcr ops lab:</label><input type="text"
+                                                                                             name="rt_pcr_ops_lab"
+                                                                                             class="form-control"
+                                                                                             maxlength="20"
+                                                                                             id="id_rt_pcr_ops_lab">
+                                <label for="id_rt_pcr_ops_result">Rt pcr ops result:</label><select
+                                    name="rt_pcr_ops_result" class="form-select" id="id_rt_pcr_ops_result">
+                                <option value="" selected="">---------</option>
+
+                                <option value="PENDING">Pending</option>
+
+                                <option value="NEGATIVE">Negative</option>
+
+                                <option value="POSITIVE">Positive</option>
+
+                                <option value="EQUIVOCAL">Equivocal</option>
+
+                            </select>
+                                <label for="id_rt_pcr_nps">Rt pcr nps:</label><input type="checkbox" name="rt_pcr_nps"
+                                                                                     class="form-check-input"
+                                                                                     id="id_rt_pcr_nps">
+                                <label for="id_rt_pcr_nps_date">Rt pcr nps date:</label><input type="date"
+                                                                                               name="rt_pcr_nps_date"
+                                                                                               class="form-control"
+                                                                                               id="id_rt_pcr_nps_date">
+                                <label for="id_rt_pcr_nps_lab">Rt pcr nps lab:</label><input type="text"
+                                                                                             name="rt_pcr_nps_lab"
+                                                                                             class="form-control"
+                                                                                             maxlength="20"
+                                                                                             id="id_rt_pcr_nps_lab">
+                                <label for="id_rt_pcr_nps_result">Rt pcr nps result:</label><select
+                                    name="rt_pcr_nps_result" class="form-select" id="id_rt_pcr_nps_result">
+                                <option value="" selected="">---------</option>
+
+                                <option value="PENDING">Pending</option>
+
+                                <option value="NEGATIVE">Negative</option>
+
+                                <option value="POSITIVE">Positive</option>
+
+                                <option value="EQUIVOCAL">Equivocal</option>
+
+                            </select>
+                                <label for="id_rt_pcr_ops_nps">Rt pcr ops nps:</label><input type="checkbox"
+                                                                                             name="rt_pcr_ops_nps"
+                                                                                             class="form-check-input"
+                                                                                             id="id_rt_pcr_ops_nps">
+                                <label for="id_rt_pcr_ops_nps_date">Rt pcr ops nps date:</label><input type="date"
+                                                                                                       name="rt_pcr_ops_nps_date"
+                                                                                                       class="form-control"
+                                                                                                       id="id_rt_pcr_ops_nps_date">
+                                <label for="id_rt_pcr_ops_nps_lab">Rt pcr ops nps lab:</label><input type="text"
+                                                                                                     name="rt_pcr_ops_nps_lab"
+                                                                                                     class="form-control"
+                                                                                                     maxlength="20"
+                                                                                                     id="id_rt_pcr_ops_nps_lab">
+                                <label for="id_rt_pcr_ops_nps_result">Rt pcr ops nps result:</label><select
+                                    name="rt_pcr_ops_nps_result" class="form-select" id="id_rt_pcr_ops_nps_result">
+                                <option value="" selected="">---------</option>
+
+                                <option value="PENDING">Pending</option>
+
+                                <option value="NEGATIVE">Negative</option>
+
+                                <option value="POSITIVE">Positive</option>
+
+                                <option value="EQUIVOCAL">Equivocal</option>
+
+                            </select>
+                                <label for="id_rt_pcr_specimen">Rt pcr specimen:</label><input type="text"
+                                                                                               name="rt_pcr_specimen"
+                                                                                               class="form-control"
+                                                                                               maxlength="20"
+                                                                                               id="id_rt_pcr_specimen">
+                                <label for="id_rt_pcr_specimen_date">Rt pcr specimen date:</label><input type="date"
+                                                                                                         name="rt_pcr_specimen_date"
+                                                                                                         class="form-control"
+                                                                                                         id="id_rt_pcr_specimen_date">
+                                <label for="id_rt_pcr_specimen_lab">Rt pcr specimen lab:</label><input type="text"
+                                                                                                       name="rt_pcr_specimen_lab"
+                                                                                                       class="form-control"
+                                                                                                       maxlength="20"
+                                                                                                       id="id_rt_pcr_specimen_lab">
+                                <label for="id_rt_pcr_specimen_result">Rt pcr specimen result:</label><select
+                                    name="rt_pcr_specimen_result" class="form-select" id="id_rt_pcr_specimen_result">
+                                <option value="" selected="">---------</option>
+
+                                <option value="PENDING">Pending</option>
+
+                                <option value="NEGATIVE">Negative</option>
+
+                                <option value="POSITIVE">Positive</option>
+
+                                <option value="EQUIVOCAL">Equivocal</option>
+
+                            </select>
+                                <label for="id_antigen">Antigen:</label><input type="checkbox" name="antigen"
+                                                                               class="form-check-input" id="id_antigen">
+                                <label for="id_antigen_date">Antigen date:</label><input type="date" name="antigen_date"
+                                                                                         class="form-control"
+                                                                                         id="id_antigen_date">
+                                <label for="id_antigen_lab">Antigen lab:</label><input type="text" name="antigen_lab"
+                                                                                       class="form-control"
+                                                                                       maxlength="20"
+                                                                                       id="id_antigen_lab">
+                                <label for="id_antigen_result">Antigen result:</label><select name="antigen_result"
+                                                                                              class="form-select"
+                                                                                              id="id_antigen_result">
+                                <option value="" selected="">---------</option>
+
+                                <option value="PENDING">Pending</option>
+
+                                <option value="NEGATIVE">Negative</option>
+
+                                <option value="POSITIVE">Positive</option>
+
+                                <option value="EQUIVOCAL">Equivocal</option>
+
+                            </select>
+                                <label for="id_antibody">Antibody:</label><input type="checkbox" name="antibody"
+                                                                                 class="form-check-input"
+                                                                                 id="id_antibody">
+                                <label for="id_antibody_date">Antibody date:</label><input type="date"
+                                                                                           name="antibody_date"
+                                                                                           class="form-control"
+                                                                                           id="id_antibody_date">
+                                <label for="id_antibody_lab">Antibody lab:</label><input type="text" name="antibody_lab"
+                                                                                         class="form-control"
+                                                                                         maxlength="20"
+                                                                                         id="id_antibody_lab">
+                                <label for="id_antibody_result">Antibody result:</label><select name="antibody_result"
+                                                                                                class="form-select"
+                                                                                                id="id_antibody_result">
+                                <option value="" selected="">---------</option>
+
+                                <option value="lgM(+)lgG(-)">lgM(+)lgG(-)</option>
+
+                                <option value="lgM(+)lgG(+)">lgM(+)lgG(+)</option>
+
+                                <option value="lgM(-)lgG(+)">lgM(-)lgG(+)</option>
+
+                                <option value="lgM(-)lgG(-)">lgM(-)lgG(-)</option>
+
+                            </select>
+                                <label for="id_test_others">Test others:</label><input type="checkbox"
+                                                                                       name="test_others"
+                                                                                       class="form-check-input"
+                                                                                       id="id_test_others">
+                                <label for="id_test_others_date">Test others date:</label><input type="date"
+                                                                                                 name="test_others_date"
+                                                                                                 class="form-control"
+                                                                                                 id="id_test_others_date">
+                                <label for="id_test_others_lab">Test others lab:</label><input type="text"
+                                                                                               name="test_others_lab"
+                                                                                               class="form-control"
+                                                                                               maxlength="20"
+                                                                                               id="id_test_others_lab">
+                                <label for="id_test_others_result">Test others result:</label><input type="text"
+                                                                                                     name="test_others_result"
+                                                                                                     class="form-control"
+                                                                                                     maxlength="20"
+                                                                                                     id="id_test_others_result">
+                                <label for="id_test_positive">Test positive:</label><select name="test_positive"
+                                                                                            class="form-select"
+                                                                                            id="id_test_positive">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_test_positive_date">Test positive date:</label><input type="date"
+                                                                                                     name="test_positive_date"
+                                                                                                     class="form-control"
+                                                                                                     id="id_test_positive_date">
+                                <label for="id_test_positive_lab">Test positive lab:</label><input type="text"
+                                                                                                   name="test_positive_lab"
+                                                                                                   class="form-control"
+                                                                                                   maxlength="20"
+                                                                                                   id="id_test_positive_lab">
+                                <label for="id_test_positive_number">Test positive number:</label><input type="text"
+                                                                                                         name="test_positive_number"
+                                                                                                         class="form-control"
+                                                                                                         maxlength="20"
+                                                                                                         id="id_test_positive_number">
+                                <label for="id_recovered_date">Recovered date:</label><input type="date"
+                                                                                             name="recovered_date"
+                                                                                             class="form-control"
+                                                                                             id="id_recovered_date">
+                                <label for="id_death_date">Death date:</label><input type="date" name="death_date"
+                                                                                     class="form-control"
+                                                                                     id="id_death_date">
+                                <label for="id_immediate_cause">Immediate cause:</label><input type="text"
+                                                                                               name="immediate_cause"
+                                                                                               class="form-control"
+                                                                                               maxlength="20"
+                                                                                               id="id_immediate_cause">
+                                <label for="id_antecendent_cause">Antecendent cause:</label><input type="text"
+                                                                                                   name="antecendent_cause"
+                                                                                                   class="form-control"
+                                                                                                   maxlength="20"
+                                                                                                   id="id_antecendent_cause">
+                                <label for="id_underlying_cause">Underlying cause:</label><input type="text"
+                                                                                                 name="underlying_cause"
+                                                                                                 class="form-control"
+                                                                                                 maxlength="20"
+                                                                                                 id="id_underlying_cause">
+                                <label for="id_history_exposure">History exposure:</label><select
+                                    name="history_exposure" class="form-select" id="id_history_exposure">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                                <option value="UNKNOWN">Unknown</option>
+
+                            </select>
+                                <label for="id_history_date">History date:</label><input type="date" name="history_date"
+                                                                                         class="form-control"
+                                                                                         id="id_history_date">
+                                <label for="id_history_place">History place:</label><select name="history_place"
+                                                                                            class="form-select"
+                                                                                            id="id_history_place">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                                <option value="UNKNOWN">Unknown</option>
+
+                            </select>
+                                <label for="id_health_facility_visit">Health facility visit:</label><input
+                                    type="checkbox" name="health_facility_visit" class="form-check-input"
+                                    id="id_health_facility_visit">
+                                <label for="id_health_facility_visit_details">Health facility visit
+                                    details:</label><input type="text" name="health_facility_visit_details"
+                                                           class="form-control" maxlength="20"
+                                                           id="id_health_facility_visit_details">
+                                <label for="id_health_facility_visit_date">Health facility visit date:</label><input
+                                    type="date" name="health_facility_visit_date" class="form-control"
+                                    id="id_health_facility_visit_date">
+                                <label for="id_closed_setting_visit">Closed setting visit:</label><input type="checkbox"
+                                                                                                         name="closed_setting_visit"
+                                                                                                         class="form-check-input"
+                                                                                                         id="id_closed_setting_visit">
+                                <label for="id_closed_setting_visit_details">Closed setting visit details:</label><input
+                                    type="text" name="closed_setting_visit_details" class="form-control" maxlength="20"
+                                    id="id_closed_setting_visit_details">
+                                <label for="id_closed_setting_visit_date">Closed setting visit date:</label><input
+                                    type="date" name="closed_setting_visit_date" class="form-control"
+                                    id="id_closed_setting_visit_date">
+                                <label for="id_market_visit">Market visit:</label><input type="checkbox"
+                                                                                         name="market_visit"
+                                                                                         class="form-check-input"
+                                                                                         id="id_market_visit">
+                                <label for="id_market_visit_details">Market visit details:</label><input type="text"
+                                                                                                         name="market_visit_details"
+                                                                                                         class="form-control"
+                                                                                                         maxlength="20"
+                                                                                                         id="id_market_visit_details">
+                                <label for="id_market_visit_date">Market visit date:</label><input type="date"
+                                                                                                   name="market_visit_date"
+                                                                                                   class="form-control"
+                                                                                                   id="id_market_visit_date">
+                                <label for="id_home_visit">Home visit:</label><input type="checkbox" name="home_visit"
+                                                                                     class="form-check-input"
+                                                                                     id="id_home_visit">
+                                <label for="id_home_visit_details">Home visit details:</label><input type="text"
+                                                                                                     name="home_visit_details"
+                                                                                                     class="form-control"
+                                                                                                     maxlength="20"
+                                                                                                     id="id_home_visit_details">
+                                <label for="id_home_visit_date">Home visit date:</label><input type="date"
+                                                                                               name="home_visit_date"
+                                                                                               class="form-control"
+                                                                                               id="id_home_visit_date">
+                                <label for="id_int_travel_visit">Int travel visit:</label><input type="checkbox"
+                                                                                                 name="int_travel_visit"
+                                                                                                 class="form-check-input"
+                                                                                                 id="id_int_travel_visit">
+                                <label for="id_int_travel_visit_details">Int travel visit details:</label><input
+                                    type="text" name="int_travel_visit_details" class="form-control" maxlength="20"
+                                    id="id_int_travel_visit_details">
+                                <label for="id_int_travel_visit_date">Int travel visit date:</label><input type="date"
+                                                                                                           name="int_travel_visit_date"
+                                                                                                           class="form-control"
+                                                                                                           id="id_int_travel_visit_date">
+                                <label for="id_school_visit">School visit:</label><input type="checkbox"
+                                                                                         name="school_visit"
+                                                                                         class="form-check-input"
+                                                                                         id="id_school_visit">
+                                <label for="id_school_visit_details">School visit details:</label><input type="text"
+                                                                                                         name="school_visit_details"
+                                                                                                         class="form-control"
+                                                                                                         maxlength="20"
+                                                                                                         id="id_school_visit_details">
+                                <label for="id_school_visit_date">School visit date:</label><input type="date"
+                                                                                                   name="school_visit_date"
+                                                                                                   class="form-control"
+                                                                                                   id="id_school_visit_date">
+                                <label for="id_transpo_visit">Transpo visit:</label><input type="checkbox"
+                                                                                           name="transpo_visit"
+                                                                                           class="form-check-input"
+                                                                                           id="id_transpo_visit">
+                                <label for="id_transpo_visit_details">Transpo visit details:</label><input type="text"
+                                                                                                           name="transpo_visit_details"
+                                                                                                           class="form-control"
+                                                                                                           maxlength="20"
+                                                                                                           id="id_transpo_visit_details">
+                                <label for="id_transpo_visit_date">Transpo visit date:</label><input type="date"
+                                                                                                     name="transpo_visit_date"
+                                                                                                     class="form-control"
+                                                                                                     id="id_transpo_visit_date">
+                                <label for="id_workplace_visit">Workplace visit:</label><input type="checkbox"
+                                                                                               name="workplace_visit"
+                                                                                               class="form-check-input"
+                                                                                               id="id_workplace_visit">
+                                <label for="id_workplace_visit_details">Workplace visit details:</label><input
+                                    type="text" name="workplace_visit_details" class="form-control" maxlength="20"
+                                    id="id_workplace_visit_details">
+                                <label for="id_workplace_visit_date">Workplace visit date:</label><input type="date"
+                                                                                                         name="workplace_visit_date"
+                                                                                                         class="form-control"
+                                                                                                         id="id_workplace_visit_date">
+                                <label for="id_local_travel_visit">Local travel visit:</label><input type="checkbox"
+                                                                                                     name="local_travel_visit"
+                                                                                                     class="form-check-input"
+                                                                                                     id="id_local_travel_visit">
+                                <label for="id_local_travel_visit_details">Local travel visit details:</label><input
+                                    type="text" name="local_travel_visit_details" class="form-control" maxlength="20"
+                                    id="id_local_travel_visit_details">
+                                <label for="id_local_travel_visit_date">Local travel visit date:</label><input
+                                    type="date" name="local_travel_visit_date" class="form-control"
+                                    id="id_local_travel_visit_date">
+                                <label for="id_gathering_visit">Gathering visit:</label><input type="checkbox"
+                                                                                               name="gathering_visit"
+                                                                                               class="form-check-input"
+                                                                                               id="id_gathering_visit">
+                                <label for="id_gathering_visit_details">Gathering visit details:</label><input
+                                    type="text" name="gathering_visit_details" class="form-control" maxlength="20"
+                                    id="id_gathering_visit_details">
+                                <label for="id_gathering_visit_date">Gathering visit date:</label><input type="date"
+                                                                                                         name="gathering_visit_date"
+                                                                                                         class="form-control"
+                                                                                                         id="id_gathering_visit_date">
+                                <label for="id_other_visit">Other visit:</label><input type="checkbox"
+                                                                                       name="other_visit"
+                                                                                       class="form-check-input"
+                                                                                       id="id_other_visit">
+                                <label for="id_other_visit_details">Other visit details:</label><input type="text"
+                                                                                                       name="other_visit_details"
+                                                                                                       class="form-control"
+                                                                                                       maxlength="20"
+                                                                                                       id="id_other_visit_details">
+                                <label for="id_other_visit_date">Other visit date:</label><input type="date"
+                                                                                                 name="other_visit_date"
+                                                                                                 class="form-control"
+                                                                                                 id="id_other_visit_date">
+                                <label for="id_travel_history">Travel history:</label><select name="travel_history"
+                                                                                              class="form-select"
+                                                                                              id="id_travel_history">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_travel_history_country">Travel history country:</label><input type="text"
+                                                                                                             name="travel_history_country"
+                                                                                                             class="form-control"
+                                                                                                             maxlength="20"
+                                                                                                             id="id_travel_history_country">
+                                <label for="id_travel_history_airline">Travel history airline:</label><input type="text"
+                                                                                                             name="travel_history_airline"
+                                                                                                             class="form-control"
+                                                                                                             maxlength="20"
+                                                                                                             id="id_travel_history_airline">
+                                <label for="id_travel_history_airline_number">Travel history airline
+                                    number:</label><input type="text" name="travel_history_airline_number"
+                                                          class="form-control" maxlength="20"
+                                                          id="id_travel_history_airline_number">
+                                <label for="id_travel_history_airline_depart">Travel history airline
+                                    depart:</label><input type="date" name="travel_history_airline_depart"
+                                                          class="form-control" id="id_travel_history_airline_depart">
+                                <label for="id_travel_history_airline_arival">Travel history airline
+                                    arival:</label><input type="date" name="travel_history_airline_arival"
+                                                          class="form-control" id="id_travel_history_airline_arival">
+                                <label for="id_travel_history_local">Travel history local:</label><select
+                                    name="travel_history_local" class="form-select" id="id_travel_history_local">
+                                <option value="" selected="">---------</option>
+
+                                <option value="YES">Yes</option>
+
+                                <option value="NO">No</option>
+
+                            </select>
+                                <label for="id_travel_history_local_place">Travel history local place:</label><input
+                                    type="text" name="travel_history_local_place" class="form-control" maxlength="20"
+                                    id="id_travel_history_local_place">
+                                <label for="id_travel_history_local_airline">Travel history local airline:</label><input
+                                    type="text" name="travel_history_local_airline" class="form-control" maxlength="20"
+                                    id="id_travel_history_local_airline">
+                                <label for="id_travel_history_local_airline_number">Travel history local airline
+                                    number:</label><input type="text" name="travel_history_local_airline_number"
+                                                          class="form-control" maxlength="20"
+                                                          id="id_travel_history_local_airline_number">
+                                <label for="id_travel_history_local_airline_depart">Travel history local airline
+                                    depart:</label><input type="date" name="travel_history_local_airline_depart"
+                                                          class="form-control"
+                                                          id="id_travel_history_local_airline_depart">
+                                <label for="id_travel_history_local_airline_arival">Travel history local airline
+                                    arival:</label><input type="date" name="travel_history_local_airline_arival"
+                                                          class="form-control"
+                                                          id="id_travel_history_local_airline_arival">
+                                <label for="id_household_contacts_name1">Household contacts name1:</label><input
+                                    type="text" name="household_contacts_name1" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name1">
+                                <label for="id_household_contacts_number1">Household contacts number1:</label><input
+                                    type="text" name="household_contacts_number1" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number1">
+                                <label for="id_household_contacts_setting1">Household contacts setting1:</label><input
+                                    type="text" name="household_contacts_setting1" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting1">
+                                <label for="id_household_contacts_name2">Household contacts name2:</label><input
+                                    type="text" name="household_contacts_name2" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name2">
+                                <label for="id_household_contacts_number2">Household contacts number2:</label><input
+                                    type="text" name="household_contacts_number2" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number2">
+                                <label for="id_household_contacts_setting2">Household contacts setting2:</label><input
+                                    type="text" name="household_contacts_setting2" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting2">
+                                <label for="id_household_contacts_name3">Household contacts name3:</label><input
+                                    type="text" name="household_contacts_name3" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name3">
+                                <label for="id_household_contacts_number3">Household contacts number3:</label><input
+                                    type="text" name="household_contacts_number3" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number3">
+                                <label for="id_household_contacts_setting3">Household contacts setting3:</label><input
+                                    type="text" name="household_contacts_setting3" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting3">
+                                <label for="id_household_contacts_name4">Household contacts name4:</label><input
+                                    type="text" name="household_contacts_name4" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name4">
+                                <label for="id_household_contacts_number4">Household contacts number4:</label><input
+                                    type="text" name="household_contacts_number4" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number4">
+                                <label for="id_household_contacts_setting4">Household contacts setting4:</label><input
+                                    type="text" name="household_contacts_setting4" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting4">
+                                <label for="id_household_contacts_name5">Household contacts name5:</label><input
+                                    type="text" name="household_contacts_name5" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name5">
+                                <label for="id_household_contacts_number5">Household contacts number5:</label><input
+                                    type="text" name="household_contacts_number5" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number5">
+                                <label for="id_household_contacts_setting5">Household contacts setting5:</label><input
+                                    type="text" name="household_contacts_setting5" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting5">
+                                <label for="id_household_contacts_name6">Household contacts name6:</label><input
+                                    type="text" name="household_contacts_name6" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name6">
+                                <label for="id_household_contacts_number6">Household contacts number6:</label><input
+                                    type="text" name="household_contacts_number6" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number6">
+                                <label for="id_household_contacts_setting6">Household contacts setting6:</label><input
+                                    type="text" name="household_contacts_setting6" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting6">
+                                <label for="id_household_contacts_name7">Household contacts name7:</label><input
+                                    type="text" name="household_contacts_name7" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name7">
+                                <label for="id_household_contacts_number7">Household contacts number7:</label><input
+                                    type="text" name="household_contacts_number7" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number7">
+                                <label for="id_household_contacts_setting7">Household contacts setting7:</label><input
+                                    type="text" name="household_contacts_setting7" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting7">
+                                <label for="id_household_contacts_name8">Household contacts name8:</label><input
+                                    type="text" name="household_contacts_name8" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name8">
+                                <label for="id_household_contacts_number8">Household contacts number8:</label><input
+                                    type="text" name="household_contacts_number8" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number8">
+                                <label for="id_household_contacts_setting8">Household contacts setting8:</label><input
+                                    type="text" name="household_contacts_setting8" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting8">
+                                <label for="id_household_contacts_name9">Household contacts name9:</label><input
+                                    type="text" name="household_contacts_name9" class="form-control" maxlength="20"
+                                    id="id_household_contacts_name9">
+                                <label for="id_household_contacts_number9">Household contacts number9:</label><input
+                                    type="text" name="household_contacts_number9" class="form-control" maxlength="20"
+                                    id="id_household_contacts_number9">
+                                <label for="id_household_contacts_setting9">Household contacts setting9:</label><input
+                                    type="text" name="household_contacts_setting9" class="form-control" maxlength="20"
+                                    id="id_household_contacts_setting9">
+                                <label for="id_waiver">Waiver:</label><input type="checkbox" name="waiver"
+                                                                             class="form-check-input" required=""
+                                                                             id="id_waiver">
+                                <label for="id_pending_test">Pending test:</label><select name="pending_test"
+                                                                                          id="id_pending_test">
+                                <option value="">---------</option>
+
+                                <option value="PENDING" selected="">Pending</option>
+
+                                <option value="COMPLETED">Completed</option>
+
+                            </select>
+                                <label for="id_pending_result">Pending result:</label><select name="pending_result"
+                                                                                              id="id_pending_result">
+                                <option value="">---------</option>
+
+                                <option value="PENDING" selected="">Pending</option>
+
+                                <option value="COMPLETED">Completed</option>
+
+                            </select>
+                                <label for="id_result_sent">Result sent:</label><select name="result_sent"
+                                                                                        id="id_result_sent">
+                                <option value="">---------</option>
+
+                                <option value="PENDING" selected="">Pending</option>
+
+                                <option value="COMPLETED">Completed</option>
+
+                            </select>
+                                <label for="id_result_file">Result file:</label><input type="file" name="result_file"
+                                                                                       id="id_result_file">
+                                <input type="submit" value="submit" class="btn btn-info"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

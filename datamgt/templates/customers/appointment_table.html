@@ -1,0 +1,42 @@
+{% load static %}
+<div class="col">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Appointments DataTable</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Reference Number</th>
+                    <th>Full Name</th>
+                    <th>Scheduled Date/Time</th>
+                    <th>Test Location</th>
+                    <th>Test Choice</th>
+                    <th>Number of People</th>
+                    <th>Payment Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for data in data %}
+                <tr>
+                    <th scope="row">{{ data.reference_number }}</th>
+                    <td>{{ data.first_name }} {{ data.last_name }}</td>
+                    <td>{{ data.booking_date }} - {{ data.time }}</td>
+                    <td>{{ data.test_location }}</td>
+                    <td>{{ data.product }}</td>
+                    <td>{{ data.number_of_person }}</td>
+                    <td>{{ data.payment_status }}</td>
+                    <td><a href="{{data.get_absolute_url}}" class="btn btn-info" role="button" aria-pressed="true">View</a></td>
+
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

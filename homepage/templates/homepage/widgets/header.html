@@ -1,0 +1,32 @@
+{% load static %}
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo me-auto"><a href="{% url 'home' %}"><i><strong>Fast</strong>Lab<sup><span
+                style="color: #78cede;">+</span></sup></i></a></h1>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                {% with url_name=request.resolver_match.url_name %}
+                {% if url_name == 'home' %}
+                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+                <li><a class="nav-link scrollto" href="#cliens">Partnership</a></li>
+                <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+                <li><a class="getstarted" href="{% url 'book_now' %}">Book Now</a></li>
+                {% else %}
+                <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'home' %}">About Us</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'home' %}">Partnership</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'home' %}">Contact Us</a></li>
+                <li><a class="getstarted" href="{% url 'book_now' %}">Book Now</a></li>
+                {% endif %}
+                {% endwith %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+
+    </div>
+</header>
+

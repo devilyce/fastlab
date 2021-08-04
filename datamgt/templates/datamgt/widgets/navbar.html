@@ -1,0 +1,34 @@
+<div class="container-fluid shadow-sm">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+        <a href="{% url 'management' %}"
+           class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <h1><i><strong>Fast</strong>Lab<sup><span style="color: #78cede;">+</span></sup></i></h1>
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="{% url 'management' %}" class="nav-link px-2 link-secondary">Home</a></li>
+            {% if perms.customers.view_customers %}
+            <li><a href="{% url 'view_appointment' %}" class="nav-link px-2 link-dark">View Appointment</a></li>
+            {% endif %}
+            {% if perms.clients.view_client %}
+            <li><a href="{% url 'view_clients' %}" class="nav-link px-2 link-dark">View Clients</a></li>
+            {% endif %}
+            {% if perms.corporate.view_corporate %}
+            <li><a href="{% url 'view_corporate' %}" class="nav-link px-2 link-dark">View Corporate</a></li>
+            {% endif %}
+            {% if perms.corporate.add_corporate %}
+            <li><a href="{% url 'admin_create_appointment' %}" class="nav-link px-2 link-dark">Create Appointment</a>
+            </li>
+            {% endif %}
+        </ul>
+
+        <div class="col-md-3 text-end">
+            <a href="{% url 'logout' %}" class="btn btn-info" role="button" aria-pressed="true">Logout</a>
+            {% if perms.auth.add_user %}
+            <a href="{% url 'register' %}" class="btn btn-info" role="button" aria-pressed="true">Register</a>
+            {% endif %}
+            <a href="{% url 'user_profile' %}" class="btn btn-info" role="button" aria-pressed="true">Profile</a>
+        </div>
+    </header>
+
+</div>

@@ -1,0 +1,153 @@
+{% extends 'datamgt/widgets/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="invoice p-3 mb-3">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row pb-5">
+                <div class="col-sm-7">
+                    <div class="row pb-3">
+                        <div class="col-sm-4">
+                            Name:
+                        </div>
+                        <div class="col-sm-7">
+                            <b>{{ data.last_name }}, {{ data.first_name }} {{ data.middle_name }} </b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Contact Number:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.contact_number }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Email:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.email }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Senior / PWD ID:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.senior_pwd_id }}<br>
+                            {% if data.senior_pwd_file %}
+                            <a href="{{ data.senior_pwd_file.url }}">Senior / PWD ID Image</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Address:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.address }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    Reference Number:<br> <b>{{data.reference_number}}</b><br>
+                    <br>
+                    Test Location: <b>{{ data.test_location }}</b><br>
+                    Date: <b>{{ data.booking_date }}</b><br>
+                    Time: <b>{{ data.time }}</b><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-7">
+                    <p class="lead">Account Summary</p>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th style="width:50%">Test Choice:</th>
+                                <td>{{ data.product }}</td>
+                            </tr>
+                            <tr>
+                                <th>Price:</th>
+                                <td>{{ data.product.price | floatformat:2 }}</td>
+                            </tr>
+                            <tr>
+                                <th>Total:</th>
+                                <td>{{ data.get_total }}</td>
+                            </tr>
+                            <tr>
+                                <th>Discount:</th>
+                                <td>{{ data.get_discount }}</td>
+                            </tr>
+                            <tr>
+                                <th>Total:</th>
+                                <td>{{ data.get_total_price_after_discount }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-5 table-responsive">
+                    <p class="lead"><strong>Status</strong></p>
+                    <table class="table table-striped">
+
+                        <tbody>
+                        <tr>
+                            <td>Payment</td>
+                            <td>{{ data.payment_status }}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Payment Method</td>
+                            <td>{{ data.payment_method }}</td>
+                            <td>{{ data.payment_reference }}</td>
+                        </tr>
+                        <tr>
+                            <td>Test Status</td>
+                            <td>{{ data.pending_test }}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Result Status</td>
+                            <td>{{ data.pending_result }}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Result Mail</td>
+                            <td>{{ data.result_sent }}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Upload File</td>
+                            <td>{{ form.result_file }}</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="bg-info color-palette">
+                        {% for message in messages%}
+                        <p class="p-3">{{message}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-lg-1">
+                    <a href="{% url 'view_corporate' %}" class="btn btn-danger" role="button"
+                       aria-pressed="true">Back</a>
+                </div>
+                <div class="col-lg-1">
+                    <input type="submit" class="btn btn-info" role="button" value="Send">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

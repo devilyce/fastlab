@@ -1,0 +1,17 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/vendor/Semantic/semantic.js' %}"></script>
+{% with url_name=request.resolver_match.url_name %}
+{% if url_name == 'create_appointment' %}
+<script src="{% static 'assets/js/calendar_scripts.js' %}"></script>
+{% endif %}
+{% endwith %}
+{% block scripts %}
+{% endblock scripts %}

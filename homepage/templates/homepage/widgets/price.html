@@ -1,0 +1,27 @@
+<section id="pricing" class="pricing section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Pricing</h2>
+            <p><small><em>* All prices are VAT inclusive. All Appointments are <strong>NON-REFUNDABLE</strong>. **
+                Results are based on time of Hero Laboratories’ scheduled RT PCR specimen run and not the time of test
+                appointment.</em></small></p>
+        </div>
+
+        <div class="row justify-content-around">
+
+            {% for product in object_list %}
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="box">
+                    <h3>{{product.name}}</h3>
+                    <h4><sup>&#8369</sup>{{product.price}}</h4>
+                    <p>{{product.description}}</p>
+                    <a href="{{product.get_absolute_url}}" class="buy-btn">Get Started</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>

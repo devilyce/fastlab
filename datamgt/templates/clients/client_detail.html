@@ -1,0 +1,112 @@
+{% extends 'datamgt/widgets/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="invoice p-3 mb-3">
+        <div class="row pb-5">
+            <div class="col-lg-7">
+                <div class="row pb-3">
+                    <div class="col-sm-4">
+                        Booking Reference Number:
+                    </div>
+                    <div class="col-sm-7">
+                        <b>{{data.reference_number.reference_number}}</b>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-sm-4">
+                        Product Choice:
+                    </div>
+                    <div class="col-sm-7">
+                        <b>{{data.reference_number.product}}</b>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-sm-4">
+                        Client Reference Number:
+                    </div>
+                    <div class="col-sm-7">
+                        <b>{{data.client_id}}</b>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-sm-4">
+                        Name:
+                    </div>
+                    <div class="col-sm-7">
+                        <b>{{ data.last_name }}, {{ data.first_name }} {{ data.middle_name }} </b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 table-responsive">
+                <p class="lead"><strong>Status</strong></p>
+                <table class="table table-striped">
+
+                    <tbody>
+                    <tr>
+                        <td>Payment Status</td>
+                        <td>{{ data.reference_number.payment_status }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Test Status</td>
+                        <td>{{ data.pending_test }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Result Status</td>
+                        <td>{{ data.pending_result }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Result Mail</td>
+                        <td>{{ data.result_sent }}</td>
+                        <td></td>
+                    </tr>
+                    {% if data.result_file %}
+                    <tr>
+                        <td></td>
+                        <td><a href="{{ data.result_file.url }}" class="btn btn-info">Result File</a></td>
+                        <td></td>
+                    </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <a href="{% url 'client_print' data.pk %}" rel="noopener" target="_blank"
+                       class="btn btn-default"><i
+                            class="fas fa-print"></i> Print</a>
+                    <a href="{% url 'client_print_health_dec' data.pk %}" rel="noopener" target="_blank"
+                       class="btn btn-default"><i
+                            class="fas fa-print"></i> Print Health Declaration</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-2">
+                            <a href="{% url 'view_clients' %}" class="btn btn-danger" role="button"
+                               aria-pressed="true">Back</a>
+                        </div>
+                        {% if perms.clients.change_client %}
+                        <div class="col-lg-2">
+                            <a href="{% url 'clinic_view_client_edit' data.pk %}" class="btn btn-info" role="button"
+                               aria-pressed="true">Update</a>
+                        </div>
+                        {% endif %}
+                        {% if perms.clients.email_client %}
+                        <div class="col-lg-3">
+                            <a href="{% url 'lab_view_client_edit' data.pk %}" class="btn btn-info" role="button"
+                               aria-pressed="true">Send Result</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

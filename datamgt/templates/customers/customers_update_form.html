@@ -1,0 +1,126 @@
+{% extends 'datamgt/widgets/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="invoice p-3 mb-3">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row pb-5">
+                <div class="col-sm-7">
+                    <div class="row pb-3">
+                        <div class="col-sm-4">
+                            Name:
+                        </div>
+                        <div class="col-sm-7">
+                            <b>{{ data.last_name }}, {{ data.first_name }} {{ data.middle_name }} </b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Contact Number:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.contact_number }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Email:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.email }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Senior / PWD ID:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ form.senior_pwd_id }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Address:
+                        </div>
+                        <div class="col-sm-8">
+                            {{ data.address }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    Reference Number:<br> <b>{{data.reference_number}}</b><br>
+                    <br>
+                    Test Location: <b>{{ form.test_location }}</b><br>
+                    Date: <b>{{ form.booking_date }}</b><br>
+                    Time: <b>{{ form.time }}</b><br>
+                    Number of Person: <b>{{ form.number_of_person }}</b>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-7">
+                    <p class="lead">Account Summary</p>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th style="width:50%">Test Choice:</th>
+                                <td>{{ form.product }}</td>
+                            </tr>
+                            <tr>
+                                <th>Price:</th>
+                                <td>{{ data.product.price | floatformat:2 }}</td>
+                            </tr>
+                            <tr>
+                                <th>Total:</th>
+                                <td>{{ data.get_total }}</td>
+                            </tr>
+                            <tr>
+                                <th>Discount:</th>
+                                <td>{{ data.get_discount }}</td>
+                            </tr>
+                            <tr>
+                                <th>Grand Total:</th>
+                                <td>{{ data.get_total_price_after_discount }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-5 table-responsive">
+                    <p class="lead">Status</p>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>Payment</td>
+                            <td>{{ form.payment_status }}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Payment Method</td>
+                            <td>{{ form.payment_method }}</td>
+                            <td>{{ form.payment_reference }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-lg-1">
+                    <a href="{% url 'view_appointment' %}" class="btn btn-danger" role="button"
+                       aria-pressed="true">Back</a>
+                </div>
+
+                <div class="col-lg-1">
+                    <input type="submit" class="btn btn-info" role="button" value="Update">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

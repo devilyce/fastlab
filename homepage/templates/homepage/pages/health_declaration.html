@@ -1,0 +1,807 @@
+{% extends 'homepage/widgets/base.html' %}
+{% load static %}
+{% block title %}Health Declaration{% endblock title%}
+
+{% block content %}
+<main id="appointment">
+    <section class="appointment">
+        <div class="container" data-aos="fade-up">
+            <div class="row pt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <form method="post">
+                                {% csrf_token %}
+                                <table class="table table-bordered table-centered mb-0">
+
+                                    <tr>
+                                        <th>PhilHealth<span class="text-danger">&#42</span>{{form.philhealth}}</th>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+
+                                    <tr class="table-dark">
+                                        <th>Part 1. Patient Information</th>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <th>Patient Profile</th>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+
+                                    <tr>
+                                        <td>Last Name<span class="text-danger">&#42</span>
+                                            {{form.last_name}}
+                                        </td>
+                                        <td>First Name<span class="text-danger">&#42</span>
+                                            {{form.first_name}}
+                                        </td>
+                                        <td>Middle Name<span class="text-danger">&#42</span>
+                                            {{form.middle_name}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of birth<span class="text-danger">&#42</span>
+                                            {{form.date_of_birth}}
+                                        </td>
+                                        <td>Age<span class="text-danger">&#42</span>
+                                            {{form.age}}
+                                        </td>
+                                        <td>Gender<span class="text-danger">&#42</span>
+                                            {{form.gender}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Civil status
+                                            {{form.civil_status}}
+                                        </td>
+                                        <td>Nationality
+                                            {{form.nationality}}
+                                        </td>
+                                        <td>Occupation
+                                            {{form.occupation}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+
+                                    <th>Current Address in the Phillipnes and Contact Information<span
+                                            class="text-danger">&#42</span> (give address of institution if you leve
+                                        in closed settings)
+                                    </th>
+
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>House No./Lot/Bldg.<span class="text-danger">&#42</span>
+                                            {{form.lot}}
+                                        </td>
+                                        <td>Street/Purok/Sitio<span class="text-danger">&#42</span>
+                                            {{form.street}}
+                                        </td>
+                                        <td>Barangay<span class="text-danger">&#42</span>
+                                            {{form.brgy}}
+                                        </td>
+                                        <td>Municipality/City<span class="text-danger">&#42</span>
+                                            {{form.city}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Province<span class="text-danger">&#42</span>
+                                            {{form.province}}
+                                        </td>
+                                        <td>Home Phone No. (& Area Code)<span class="text-danger">&#42</span>
+                                            {{form.phone_no}}
+                                        </td>
+                                        <td>Cellphone No.<span class="text-danger">&#42</span>
+                                            {{form.cp_no}}
+                                        </td>
+                                        <td>Email Address<span class="text-danger">&#42</span>
+                                            {{form.email}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+
+                                    <th>Current Workplace Address and Contact Information</th>
+
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Lot/Bldg.
+                                            {{form.work_lot}}
+                                        </td>
+                                        <td>Street
+                                            {{form.work_street}}
+                                        </td>
+                                        <td>Barangay
+                                            {{form.work_brgy}}
+                                        </td>
+                                        <td>Municipality/City
+                                            {{form.work_city}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Province
+                                            {{form.work_province}}
+                                        </td>
+                                        <td>Name of Workplace
+                                            {{form.workplace}}
+                                        </td>
+                                        <td>Phone No./Cellphone No.
+                                            {{form.work_contact_no}}
+                                        </td>
+                                        <td>Email Address
+                                            {{form.work_email}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+
+                                    <th>Consultation and Admission Information</th>
+
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Did you have previous COVID-19 related consultation?</td>
+                                        <td>{{form.covid_consultation}}</td>
+                                        <td>{{form.covid_consultation_date}}
+                                            <small class="text-danger"><i>if YES Date of First Consult</i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name of facility where first consult was done</td>
+                                        <td>{{form.consult_facility}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Was the case admitted in a health ficility?</td>
+                                        <td>{{form.health_facility}}</td>
+                                        <td>{{form.health_facility_date}}
+                                            <small class="text-danger"><i>if YES Date of Admission indicate earliest
+                                                date if admitted in multiple health facilities</i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name of facility where patient was first admitted</td>
+                                        <td>{{form.facility_name}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Region and Provice of Facility</td>
+                                        <td>{{form.region_facility}}</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Disposition at Time of Report<span class="text-danger">&#42</span> (Provide name
+                                        of hospital/isolation/quarantine facility)
+                                    </th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Admitted in hospital<br>{{form.admitted_hospital}}</td>
+                                        <td>Date and Time admitted in hospital<br>{{form.admitted_hospital_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Admitted in isolation/quarantine facility<br>{{form.admitted_facility}}</td>
+                                        <td>Date and Time isolation/quarantined in facility<br>{{form.admitted_facility_date}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>In home isolation/quarantine<br>{{form.home_quarantine}}</td>
+                                        <td>Date and Time isolation/quarantine at home<br>{{form.home_quarantine_date}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Discharged to home<br>{{form.discard_home}}</td>
+                                        <td>Date of Discharge<br>{{form.discarge_date}}
+                                            <small class="text-danger"><i>if discharge</i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Others<br>{{form.other_admitted}}</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Health Status at Consult<span class="text-danger">&#42</span>
+                                    </th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>{{form.health_status_consult}}</td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr class="table-dark">
+                                        <th>Part 2. Case Investigation Details</th>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <th>Special Population</th>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Health Care Worker<span class="text-danger">&#42</span></td>
+                                        <td>{{form.health_care_worker}}</td>
+                                        <td>{{form.health_care_worker_name}}<small class="text-danger"><i>if YES Name &
+                                            Location of Health Facility</i></small></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Returning Overseas Filifino<span class="text-danger">&#42</span></td>
+                                        <td>{{form.return_ofw}}</td>
+                                        <td>{{form.return_ofw_country}}<small class="text-danger"><i>if YES County of
+                                            Origin</i></small></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Foreign National Traveler<span class="text-danger">&#42</span></td>
+                                        <td>{{form.foreign_traveler}}</td>
+                                        <td>{{form.foreign_traveler_country}}<small class="text-danger"><i>if YES County
+                                            of
+                                            Origin</i></small></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Locally Stranded Individual/APOR/Traveler<span
+                                                class="text-danger">&#42</span></td>
+                                        <td>{{form.local_stranded}}</td>
+                                        <td>{{form.local_stranded_city}}<small class="text-danger"><i>If YES Name of
+                                            City, Municipality & Province or Origin</i></small></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lives in Closed Settings<span
+                                                class="text-danger">&#42</span></td>
+                                        <td>{{form.live_closed}}</td>
+                                        <td>{{form.live_closed_name}}<small class="text-danger"><i>if YES Specify
+                                            Type of Institution (e.g. prisons, residential facilities, retirement care
+                                            homes, camps etc.)</i></small></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Permanent Address and Contact Information (if different form current address)
+                                    </th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>House No./Lot/Bldg.
+                                            {{form.current_lot}}
+                                        </td>
+                                        <td>Street/Purok/Sitio
+                                            {{form.current_street}}
+                                        </td>
+                                        <td>Barangay
+                                            {{form.current_brgy}}
+                                        </td>
+                                        <td>Municipality/City
+                                            {{form.current_city}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Province
+                                            {{form.current_province}}
+                                        </td>
+                                        <td>Home Phone No. (& Area Code)
+                                            {{form.current_phone_no}}
+                                        </td>
+                                        <td>Cellphone No.
+                                            {{form.current_cp_no}}
+                                        </td>
+                                        <td>Email Address
+                                            {{form.current_email}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Address Outside the Philippines and Contact Information (for Overseas Filipino
+                                        Workers and Individuals with Residence Outside PH
+                                    </th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>House No./Lot/Bldg.
+                                            {{form.ofw_lot}}
+                                        </td>
+                                        <td>Street
+                                            {{form.ofw_street}}
+                                        </td>
+                                        <td>Municipality/City
+                                            {{form.ofw_city}}
+                                        </td>
+                                        <td>Province
+                                            {{form.ofw_province}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country
+                                            {{form.ofw_country}}
+                                        </td>
+                                        <td>Place of Work
+                                            {{form.ofw_workplace}}
+                                        </td>
+                                        <td>Employer's Name
+                                            {{form.ofw_employer}}
+                                        </td>
+                                        <td>Employer's Office/Contact No.
+                                            {{form.ofw_contact_no}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Clinical Information</th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>Date of Onset of Illness {{form.date_onset}}</td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <th>Signs and Symptoms (Check all that apply if present)</th>
+                                        <th>Comorbidities (Check all that apply if present)</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.asympto}}Asyptomatic</div>
+                                                <div class="col-lg-6">{{form.dyspnea}}Dyspnea</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.coryza}}Coryza</div>
+                                                <div class="col-lg-6">{{form.anorexia}}Anorexia</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.general_weak}}General Weakness</div>
+                                                <div class="col-lg-6">{{form.vomiting}}Vomiting</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.fatigue}}Fatigue</div>
+                                                <div class="col-lg-6">{{form.diarrhea}}Diarrhea</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.headache}}Headache</div>
+                                                <div class="col-lg-6">{{form.altered_mental}}Altered Mental Status</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.myalgia}}Myalgia</div>
+                                                <div class="col-lg-6">{{form.anosmia}}Anosmia (loss of smell)</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.sore_throat}}Sore Throat</div>
+                                                <div class="col-lg-6">{{form.aguesia}}Aguesia (loss of Taste)</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6"> {{form.fever}}Fever{{form.fever_temp}}
+                                                </div>
+                                                <div class="col-lg-6">Others{{form.other_symptoms}}</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.como_none}}None</div>
+                                                <div class="col-lg-6">{{form.gastro}}Gastrointestinal</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.hyper}}Hypertension</div>
+                                                <div class="col-lg-6">{{form.genito}}Genito-uninary</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.diabetes}}Diabetes</div>
+                                                <div class="col-lg-6">{{form.neuro}}Neurological Disease</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.heart_d}}Heart Disease</div>
+                                                <div class="col-lg-6">{{form.cancer}}Cancer</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">{{form.lung_d}}Lung Disease</div>
+                                                <div class="col-lg-6">Others{{form.como_others}}</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Are you pregnant?</td>
+                                        <td>{{form.pregnant}}</td>
+                                        <td>{{form.pregnant_lmp}}<small class="text-danger"><i>LMP</i></small></td>
+                                    </tr>
+                                    <tr>
+                                        <td>High Risk Pregnancy?</td>
+                                        <td>{{form.risk_pregnant}}</td>
+                                        <td></td>
+                                    </tr>
+
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Were you diagnose to have Severe Acute Respiratory
+                                            Illness?{{form.diag_sari}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chest imaging findings suggestive of COVID-19</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <th>Imaging Done (Check all that apply)</th>
+                                        <th>Result</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.chest_radio}}Chest Radiography</td>
+                                        <td>{{form.chest_radio_finding}}<small class="text-danger"><i>Specify
+                                            Findings</i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.chest_ct}}Chest CT</td>
+                                        <td>{{form.chest_ct_finding}}<small class="text-danger"><i>Specify Findings</i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.lung_ultra}}Lung Ultrasound</td>
+                                        <td>{{form.lung_ultra_finding}}<small class="text-danger"><i>Specify
+                                            Findings</i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.chest_imaging_none}}None</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Laboratory Information</th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <th>Test Done<span class="text-danger">&#42</span> (Check all that apply)</th>
+                                        <th>Date Collected<span class="text-danger">&#42</span></th>
+                                        <th>Laboratory</th>
+                                        <th>Result<span class="text-danger">&#42</span></th>
+                                        <th>Date Released</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.rt_pcr_ops}}RT-PCR(OPS)</td>
+                                        <td>{{form.rt_pcr_ops_date}}</td>
+                                        <td>{{form.rt_pcr_ops_lab}}</td>
+                                        <td>{{form.rt_pcr_ops_result}}</td>
+                                        <td>{{form.rt_pcr_ops_date_release}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.rt_pcr_nps}}RT-PCR(NPS)</td>
+                                        <td>{{form.rt_pcr_nps_date}}</td>
+                                        <td>{{form.rt_pcr_nps_lab}}</td>
+                                        <td>{{form.rt_pcr_nps_result}}</td>
+                                        <td>{{form.rt_pcr_nps_date_release}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.rt_pcr_ops_nps}}RT-PCR(OPS & NPS)</td>
+                                        <td>{{form.rt_pcr_ops_nps_date}}</td>
+                                        <td>{{form.rt_pcr_ops_nps_lab}}</td>
+                                        <td>{{form.rt_pcr_ops_nps_result}}</td>
+                                        <td>{{form.rt_pcr_ops_nps_date_release}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.rt_pcr}} RT-PCR{{form.rt_pcr_specimen}}
+                                            <small class="text-danger"><i>(specimen type)</i></small>
+                                        </td>
+                                        <td>{{form.rt_pcr_specimen_date}}</td>
+                                        <td>{{form.rt_pcr_specimen_lab}}</td>
+                                        <td>{{form.rt_pcr_specimen_result}}</td>
+                                        <td>{{form.rt_pcr_specimen_date_release}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.antigen}}Antigen Test</td>
+                                        <td>{{form.antigen_date}}</td>
+                                        <td>{{form.antigen_lab}}</td>
+                                        <td>{{form.antigen_result}}</td>
+                                        <td>{{form.antigen_date_release}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.antibody}}Antibody Test</td>
+                                        <td>{{form.antibody_date}}</td>
+                                        <td>{{form.antibody_lab}}</td>
+                                        <td>{{form.antibody_result}}</td>
+                                        <td>{{form.antibody_date_release}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.test_others}}Others</td>
+                                        <td>{{form.test_others_date}}</td>
+                                        <td>{{form.test_others_lab}}</td>
+                                        <td>{{form.test_others_result}}</td>
+                                        <td>{{form.test_others_date_release}}</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>Have you ever tested positive using RT-PCR before?</td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+
+                                    <tr>
+                                        <td>{{form.test_positive}}</td>
+                                        <td>{{form.test_positive_date}}<small class="text-danger"><i>if YES Date of
+                                            Speciment Collection</i></small></td>
+                                        <td>{{form.test_positive_lab}}<small
+                                                class="text-danger"><i>Laboratory</i></small></td>
+                                        <td>{{form.test_positive_number}}<small class="text-danger"><i>Number of
+                                            previous RT-PCR swabs done</i></small></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Outcome/Condition at Time of Report<span class="text-danger">&#42</span>
+                                    </th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>Active (Currently admitted or isolation/quaratine){{form.test_positive}}
+                                        </td>
+                                        <td>Recovered, Date of Recovery{{form.recovered_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Died, Date of Death{{form.death_date}}</td>
+                                        <td>Cause of Death<span class="text-danger">&#42</span> Immediate
+                                            Cause{{form.immediate_cause}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Antecedent Cause{{form.antecendent_cause}}</td>
+                                        <td>Underlying Cause{{form.underlying_cause}}</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr class="table-dark">
+                                        <th>Part 3. Contact Tracing</th>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <th>Exposure History</th>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>History of exposure to known probable and/or confirmed COVID-19 case 14 days
+                                            before the onset of signs and symptoms? or if Asympotomatic, 14 days before
+                                            swabbing or specimen collection?<span class="text-danger">&#42</span>
+                                        </td>
+                                        <td>{{form.history_exposure}}</td>
+                                        <td>{{form.history_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Have you been in a place with a known COVID-19 community transmission 14
+                                            days before the onset of signs and symptoms? or if Asympotomatic, 14 days
+                                            before swabbing or specimen collection?<span class="text-danger">&#42</span>
+                                        </td>
+                                        <td>{{form.history_place}}</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>If Yes, specify place (Check all that apply, provide details such as name
+                                        establishment, transport service, venue, location etc. and date of visit in)
+                                    </td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <th>Place Visited</th>
+                                        <th>Details</th>
+                                        <th>Date of Visit</th>
+                                        <th>Place Visted</th>
+                                        <th>Details</th>
+                                        <th>Date of Visit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.health_facility_visit}}Health Facility</td>
+                                        <td>{{form.health_facility_visit_details}}</td>
+                                        <td>{{form.health_facility_visit_date}}</td>
+                                        <td>{{form.transpo_visit}}Transportation</td>
+                                        <td>{{form.transpo_visit_details}}</td>
+                                        <td>{{form.transpo_visit_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.closed_setting_visit}}Closed Settings (e.g. Jail)</td>
+                                        <td>{{form.closed_setting_visit_details}}</td>
+                                        <td>{{form.closed_setting_visit_date}}</td>
+                                        <td>{{form.workplace_visit}}Workplace</td>
+                                        <td>{{form.workplace_visit_details}}</td>
+                                        <td>{{form.workplace_visit_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.market_visit}}Market</td>
+                                        <td>{{form.market_visit_details}}</td>
+                                        <td>{{form.market_visit_date}}</td>
+                                        <td>{{form.local_travel_visit}}Local Travel</td>
+                                        <td>{{form.local_travel_visit_details}}</td>
+                                        <td>{{form.local_travel_visit_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.home_visit}}Home</td>
+                                        <td>{{form.home_visit_details}}</td>
+                                        <td>{{form.home_visit_date}}</td>
+                                        <td>{{form.gathering_visit}}Social Gathering</td>
+                                        <td>{{form.gathering_visit_details}}</td>
+                                        <td>{{form.gathering_visit_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.int_travel_visit}}International Travel</td>
+                                        <td>{{form.int_travel_visit_details}}</td>
+                                        <td>{{form.int_travel_visit_date}}</td>
+                                        <td>{{form.other_visit}}Others</td>
+                                        <td>{{form.other_visit_details}}</td>
+                                        <td>{{form.other_visit_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.school_visit}}School</td>
+                                        <td>{{form.school_visit_details}}</td>
+                                        <td>{{form.school_visit_date}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0 table-secondary">
+                                    <th>Travel History</th>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>History of travel/visit/work in other countries with a known COVID-19
+                                        transmission 14 before the onset signs and symptoms
+                                    </td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>{{form.travel_history}}</td>
+                                        <td>{{form.travel_history_country}}<small class="text-danger"><i>Country of
+                                            exit</i></small></td>
+                                        <td>{{form.travel_history_airline}}<small class="text-danger"><i>Airline/Sea
+                                            vessel</i></small></td>
+                                        <td>{{form.travel_history_airline_number}}<small class="text-danger"><i>Flight/Vessel
+                                            Number</i></small></td>
+                                        <td>{{form.travel_history_airline_depart}}<small class="text-danger"><i>Date of
+                                            Departure</i></small></td>
+                                        <td>{{form.travel_history_airline_arival}}<small class="text-danger"><i>Date of
+                                            Arrival in PH</i></small></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>History of travel/visit/work in other local place with a known COVID-19
+                                        transmission 14 before the onset signs and symptoms
+                                    </td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <td>{{form.travel_history_local}}</td>
+                                        <td>{{form.travel_history_local_place}}<small class="text-danger"><i>Place of
+                                            origin</i></small></td>
+                                        <td>{{form.travel_history_local_airline}}<small class="text-danger"><i>Airline/Sea
+                                            vessel/Bus line/Train</i></small></td>
+                                        <td>{{form.travel_history_local_airline_number}}<small class="text-danger"><i>Flight/Vessel
+                                            Number/Bus No.</i></small></td>
+                                        <td>{{form.travel_history_local_airline_depart}}<small class="text-danger"><i>Date
+                                            of Departure</i></small></td>
+                                        <td>{{form.travel_history_local_airline_arival}}<small class="text-danger"><i>Date
+                                            of Arrival in Current City/Mun.</i></small></td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <td>List the names of persons who were with you two days prior to onset of illness
+                                        until this date and their contact numbers.</br><small class="text-danger"><i>*if
+                                            asymptomatic, list the names of persons who were with you on the day you
+                                            submitted specimen for testing until this date and their contact
+                                            numbers.</i></small></td>
+                                </table>
+                                <table class="table table-bordered table-centered mb-0">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Contact Number</th>
+                                        <th>Exposure Setting (ex. Houshold, Work)</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name1}}</td>
+                                        <td>{{form.household_contacts_number1}}</td>
+                                        <td>{{form.household_contacts_setting1}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name2}}</td>
+                                        <td>{{form.household_contacts_number2}}</td>
+                                        <td>{{form.household_contacts_setting2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name3}}</td>
+                                        <td>{{form.household_contacts_number3}}</td>
+                                        <td>{{form.household_contacts_setting3}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name4}}</td>
+                                        <td>{{form.household_contacts_number4}}</td>
+                                        <td>{{form.household_contacts_setting4}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name5}}</td>
+                                        <td>{{form.household_contacts_number5}}</td>
+                                        <td>{{form.household_contacts_setting5}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name6}}</td>
+                                        <td>{{form.household_contacts_number6}}</td>
+                                        <td>{{form.household_contacts_setting6}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name7}}</td>
+                                        <td>{{form.household_contacts_number7}}</td>
+                                        <td>{{form.household_contacts_setting7}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name8}}</td>
+                                        <td>{{form.household_contacts_number8}}</td>
+                                        <td>{{form.household_contacts_setting8}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.household_contacts_name9}}</td>
+                                        <td>{{form.household_contacts_number9}}</td>
+                                        <td>{{form.household_contacts_setting9}}</td>
+                                    </tr>
+                                </table>
+                                <div class="row pt-2">
+                                    <div class="col-lg-12">
+                                        <p>Please note that in compliance with RA 11332 or the Mandatory Reporting
+                                            of Notifiable Diseases and Health Events of Public Health Concern Act, those
+                                            who will classify as possible, suspect and probable COVID Case will be
+                                            reported to the Regional Epidemiology and Surveillance Unit (RESU). The same
+                                            act also requires that the information that you provide regarding your
+                                            health condition and possible exposure are true.</p>
+                                        <p><span class="text-info">Data Privacy</span></p>
+                                        <p><strong>CONSENT:</strong> I certify that the information I will give are
+                                            true and correct. I hereby confirm that I am voluntarily filling out this
+                                            form as I seek medical treatment or avail of other healthcare services at
+                                            Fastlab + by Lagman Diagnostic.
+                                        </p>
+
+
+                                        <p><strong>ACKNOWLEDGEMENT:</strong> I hereby confirm that I understand the
+                                            foregoing and that I am voluntarily giving my consent to the processing of
+                                            my Personal Data under the Philippine Data Privacy Act of 2012.</p>
+
+                                        <p>Furthermore, I understand that:</p>
+                                        <ul>
+
+                                            <li>1. The consent I am giving through this form is in addition to any
+                                                other consent that I may give/ have given Fastlab + by Lagman Diagnostic
+                                                regarding the use of my personal data.
+                                            </li>
+                                            <li>2. The consent will remain in force until I revoke it in writing.
+                                            </li>
+                                        </ul>
+                                        <p><span class="text-info"><strong>WAIVER</strong></span><span
+                                                class="text-danger">&#42</span>
+                                        </p>
+                                        <p>By signing this registration form, you
+                                            confirm that you accept our processing of your information and agree to
+                                            our
+                                            <span class="text-info">Privacy Policy.</span>
+                                        </p>
+                                        {{form.waiver.errors}}
+                                        <div class="form-check">
+                                            {{form.waiver}}
+                                            <label class="form-check-label">I am going to take an Antigen Test that
+                                                checks the presence of SARSCOV-2 (COVID-19) through FINA Antigen
+                                                Test.
+                                                As there are varied COVID-19 tests available in the market, I
+                                                acknowledge that it is my responsibility to ensure that this
+                                                COVID-19
+                                                test modality is acceptable with the governmental, private entity or
+                                                medical professional requiring the results for whatever purpose it
+                                                will
+                                                serve. In this regard, Fastlab + by Lagman Diagnostic Center does
+                                                not
+                                                guarantee that the official results it will issue will satisfy the
+                                                requirements of the requesting entity.
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="submit" class="btn btn-info mt-3"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

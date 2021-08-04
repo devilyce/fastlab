@@ -1,0 +1,43 @@
+{% extends 'homepage/widgets/base.html' %}
+{% load static %}
+{% block title %}Book Now{% endblock title%}
+
+{% block content %}
+
+<section id="about" class="about" style="padding-top:100px;">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-right" data-aos-delay="100">
+                <h1>Choose a test</h1>
+
+                <p>We are open until 5 PM – 7 days a week<br><span
+                        style="color: #78cede;"><strong>OPEN DURING MECQ</strong></span></p>
+                <h2><span style="color: #78cede;">917-888-</span><em>FAST</em></h2>
+
+                <p class="fst-italic">
+                    “Based on RITM’s findings, the Lansion antigen test kit (FINA AG)
+                    has an average sensitivity of 91.43%, while average specificity
+                    is 97.54%, the highest among all available antigen tests kits in the country. The rating is also
+                    similar, if not at par, with RT-PCR tests.”
+                </p>
+
+                <p>By: Daphne Galvez – <strong>Inquirer.net</strong> (04-06-2021)</p>
+
+            </div>
+
+            <div class="col-lg-6 align-items-stretch img"
+                 style="background-image: url('{% static 'assets/img/services/services-1.jpeg' %}');">&nbsp;
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+{% include 'homepage/widgets/price.html' %}
+
+{% endblock content %}

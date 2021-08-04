@@ -1,0 +1,95 @@
+{% extends 'datamgt/widgets/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <h5>Client Info</h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <table class="table table-bordered table-centered mb-0">
+                                <tr>
+                                    <td>Last Name<span class="text-danger">&#42</span>
+                                        {{form.last_name}}
+                                    </td>
+                                    <td>First Name<span class="text-danger">&#42</span>
+                                        {{form.first_name}}
+                                    </td>
+                                    <td>Middle Name<span class="text-danger">&#42</span>
+                                        {{form.middle_name}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Date of birth<span class="text-danger">&#42</span>
+                                        {{form.date_of_birth}}
+                                    </td>
+                                    <td>Age<span class="text-danger">&#42</span>
+                                        {{form.age}}
+                                    </td>
+                                    <td>Gender<span class="text-danger">&#42</span>
+                                        {{form.gender}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Civil status
+                                        {{form.civil_status}}
+                                    </td>
+                                    <td>Nationality
+                                        {{form.nationality}}
+                                    </td>
+                                    <td>Occupation
+                                        {{form.occupation}}
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <table class="table table-bordered table-centered mb-0">
+                                <tr>
+                                    <td>House No./Lot/Bldg.<span class="text-danger">&#42</span>
+                                        {{form.lot}}
+                                    </td>
+                                    <td>Street/Purok/Sitio<span class="text-danger">&#42</span>
+                                        {{form.street}}
+                                    </td>
+                                    <td>Barangay<span class="text-danger">&#42</span>
+                                        {{form.brgy}}
+                                    </td>
+                                    <td>Municipality/City<span class="text-danger">&#42</span>
+                                        {{form.city}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Province<span class="text-danger">&#42</span>
+                                        {{form.province}}
+                                    </td>
+                                    <td>Home Phone No. (& Area Code)<span class="text-danger">&#42</span>
+                                        {{form.phone_no}}
+                                    </td>
+                                    <td>Cellphone No.<span class="text-danger">&#42</span>
+                                        {{form.cp_no}}
+                                    </td>
+                                    <td>Email Address<span class="text-danger">&#42</span>
+                                        {{form.email}}
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <input type="submit" value="submit" class="btn btn-info mt-2" id="btn-submit"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

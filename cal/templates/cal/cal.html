@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="{% static 'assets/vendor/Semantic/semantic.js' %}"></script>
+
+
+    <link href="{% static 'assets/vendor/Semantic/semantic.css' %}" rel="stylesheet">
+
+    <title>oder a car</title>
+</head>
+<body>
+<form method="post" id="calForm" novalidate>
+    {% csrf_token %}
+    {{form.name}}
+    <div class="ui selection dropdown" id="years">
+        <input type="hidden" name="year">
+        <i class="dropdown icon"></i>
+        <div class="default text">Year</div>
+        <div class="menu" id="year-data-box">
+        </div>
+    </div>
+    <div class="ui selection dropdown" id="months">
+        <input type="hidden" name="month" id="month-hidden">
+        <i class="dropdown icon"></i>
+        <div class="default text" id="month-text">Month</div>
+        <div class="menu" id="month-data-box">
+        </div>
+    </div>
+    <div class="ui selection dropdown" id="days">
+        <input type="hidden" name="day" id="day-hidden">
+        <i class="dropdown icon"></i>
+        <div class="default text" id="day-text">Day</div>
+        <div class="menu" id="day-data-box">
+        </div>
+    </div>
+
+    <div class="ui selection dropdown" id="times">
+        <input type="hidden" name="time" id="time-hidden">
+        <i class="dropdown icon"></i>
+        <div class="default text" id="time-text">Time</div>
+        <div class="menu" id="time-data-box">
+        </div>
+    </div>
+    <input type="submit" value="submit" class="btn btn-info"/>
+</form>
+<script src="{% static 'assets/js/calendar_scripts.js' %}"></script>
+</body>
+</html>
