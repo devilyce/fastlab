@@ -49,7 +49,7 @@ color:#fff;
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #78cede;
+  background: #5ed2e1;
 }
 
 #preloader:before {
@@ -57,7 +57,7 @@ color:#fff;
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #78cede;
+  border: 6px solid #5ed2e1;
   border-top-color: #fff;
   border-bottom-color: #fff;
   border-radius: 50%;
@@ -548,7 +548,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 .section-title h2::before {
@@ -590,7 +590,7 @@ padding:60px;
 }
 
 .partnership .content h1 {
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 .partnership img {
@@ -621,7 +621,7 @@ padding:60px;
 }
 
 .about .content h1 {
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 .about .img {
@@ -660,7 +660,7 @@ padding:60px;
 }
 
 .book-now .content h1 {
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 .book-now .img {
@@ -709,12 +709,12 @@ padding:60px;
   font-weight: 500;
   margin-bottom: 15px;
   font-size: 38px;
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 .pricing h1 {
   font-size: 30px;
-  color: #78cede;
+  color: #5ed2e1;
   font-weight: 400;
   font-family: "Jost", sans-serif;
   margin-bottom: 25px;
@@ -844,7 +844,7 @@ padding:60px;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 .contact .info p {
@@ -1032,7 +1032,7 @@ padding:60px;
   padding: 0;
   line-height: 1;
   font-weight: 600;
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 #ticket form {
@@ -1076,7 +1076,7 @@ padding:60px;
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #78cede;
+  background: #5ed2e1;
 }
 
 #footer .footer-top {
@@ -1095,7 +1095,7 @@ padding:60px;
   line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
-  color: #78cede;
+  color: #5ed2e1;
 }
 
 #footer .footer-top .footer-contact p {
@@ -1109,7 +1109,7 @@ padding:60px;
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #78cede;
+  color: #5ed2e1;
   position: relative;
   padding-bottom: 12px;
 }

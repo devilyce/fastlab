@@ -9,7 +9,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+  font-size: 20px;
   color: #444444;
 }
 
@@ -23,10 +24,6 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Jost", sans-serif;
-}
-
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -38,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #37517e;
+  background: #5ed2e1;
 }
 
 #preloader:before {
@@ -46,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #37517e;
+  border: 6px solid #5ed2e1;
   border-top-color: #fff;
   border-bottom-color: #fff;
   border-radius: 50%;
@@ -114,11 +111,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
-  background: rgba(40, 58, 90, 0.9);
+  background: #000;
 }
 
 #header.header-scrolled, #header.header-inner-pages {
-  background: rgba(40, 58, 90, 0.9);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 #header .logo {
@@ -126,9 +123,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 #header .logo a {
@@ -322,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-mobile a {
   padding: 10px 20px;
   font-size: 15px;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
@@ -331,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-mobile .getstarted {
   margin: 15px;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .navbar-mobile .dropdown ul {
@@ -522,7 +516,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .section-title h2::before {
@@ -557,11 +551,11 @@ section {
 .cliens {
   padding: 12px 0;
   text-align: center;
-    background: rgba(40, 58, 90, 1);
+  background: #000;
 
 }
 .cliens h1 {
-  color: #78cede;
+  color: #5ed2e1;
 }
 .cliens img {
   max-width: 45%;
@@ -585,13 +579,18 @@ section {
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
+.about {
+background: #000;
+color: #fff;
+}
+
 .about .content {
   padding: 60px 60px 60px 60px;
 }
 .about .content h1 {
   font-weight: 600;
   font-size: 50px;
-    color: #78cede;
+    color: #5ed2e1;
 
 }
 
@@ -661,7 +660,7 @@ section {
 .why-us .content h3 {
   font-weight: 400;
   font-size: 34px;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .why-us .content h4 {
@@ -782,7 +781,7 @@ section {
 .skills .content h3 {
   font-weight: 700;
   font-size: 32px;
-  color: #37517e;
+  color: #5ed2e1;
   font-family: "Poppins", sans-serif;
 }
 
@@ -819,7 +818,7 @@ section {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .skills .progress .skill .val {
@@ -866,7 +865,7 @@ section {
 }
 
 .services .icon-box h4 a {
-  color: #37517e;
+  color: #5ed2e1;
   transition: ease-in-out 0.3s;
 }
 
@@ -1125,7 +1124,7 @@ section {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .team .member span {
@@ -1171,7 +1170,7 @@ section {
 }
 
 .team .member .social a i {
-  color: #37517e;
+  color: #5ed2e1;
   font-size: 16px;
   margin: 0 2px;
 }
@@ -1208,12 +1207,12 @@ section {
   font-weight: 500;
   margin-bottom: 15px;
   font-size: 20px;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .pricing h4 {
   font-size: 48px;
-  color: #37517e;
+  color: #5ed2e1;
   font-weight: 400;
   font-family: "Jost", sans-serif;
   margin-bottom: 25px;
@@ -1374,7 +1373,7 @@ section {
 }
 
 .faq .faq-list a.collapsed {
-  color: #37517e;
+  color: #5ed2e1;
   transition: 0.3s;
 }
 
@@ -1399,6 +1398,11 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact {
+  background: #000;
+
+}
+
 .contact .info {
   border-top: 3px solid #47b2e4;
   border-bottom: 3px solid #47b2e4;
@@ -1427,7 +1431,7 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .contact .info p {
@@ -1618,7 +1622,7 @@ list-style-type: none;
 .breadcrumbs h2 {
   font-size: 28px;
   font-weight: 600;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 .breadcrumbs ol {
@@ -1646,7 +1650,8 @@ list-style-type: none;
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #37517e;
+    background: #000;
+
 }
 
 #footer .footer-newsletter {
@@ -1663,7 +1668,7 @@ list-style-type: none;
   padding: 0;
   line-height: 1;
   font-weight: 600;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 #footer .footer-newsletter form {
@@ -1704,7 +1709,8 @@ list-style-type: none;
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
-  background: #fff;
+  background: #000;
+  color: #fff;
 }
 
 #footer .footer-top .footer-contact {
@@ -1718,21 +1724,20 @@ list-style-type: none;
   line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
-  color: #37517e;
+  color: #5ed2e1;
 }
 
 #footer .footer-top .footer-contact p {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Jost", sans-serif;
-  color: #5e5e5e;
+  color: #fff;
 }
 
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #37517e;
+  color: #5ed2e1;
   position: relative;
   padding-bottom: 12px;
 }

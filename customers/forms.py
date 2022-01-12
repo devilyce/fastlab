@@ -69,7 +69,7 @@ class CustomerForms(forms.ModelForm):
                 attrs={'class': 'form-control', 'type': 'number', 'name': 'contact_number'}),
             'nationality': forms.TextInput(attrs={'class': 'form-control', 'name': 'nationality'}),
             'civil_status': forms.Select(choices=CIVIL_STATUS,
-                                         attrs={'class': 'form-select', 'name': 'civil_status'}),
+                                         attrs={'class': 'form-select', 'name': 'Civil_Status'}),
             'date_of_birth': forms.DateInput(format=('%d-%m-%Y'),
                                              attrs={'class': 'form-control', 'name': 'date_of_birth',
                                                     'type': 'date'}),
