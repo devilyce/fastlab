@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-%4($ubthjcchld1f16_)p35a6e=$!+j6^c896=kof4nusjh53k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testserver.fastlab.ph', 'www.testserver.fastlab.ph', ]
+ALLOWED_HOSTS = ['testserver.fastlab.ph', 'www.testserver.fastlab.ph', '127.0.0.1:8000', '127.0.0.1' ]
 
 # Application definition
 
