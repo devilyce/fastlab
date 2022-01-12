@@ -354,7 +354,7 @@
   outline: 0;
   -webkit-transform: rotateZ(0deg);
           transform: rotateZ(0deg);
-  min-width: 14em;
+  min-width: 14rem;
   min-height: 2.71428571em;
   background: #FFFFFF;
   display: inline-block;
